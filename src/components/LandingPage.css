@@ -1,0 +1,1377 @@
+/* --- Global Styles & Font Setup --- */
+:root {
+  --primary-blue: #006aff; /* Sampled from Join button */
+  --text-dark: #222222;    /* Sampled from H1 */
+  --text-medium: #5a5a5a; /* Sampled from subtitle, description */
+  --text-light: #888888;  /* Sampled from nav items and badge */
+  --bg-light-gray: #f9f9f9; /* Sampled from background */
+  --white: #ffffff;
+  --border-light: #e0e0e0; /* Sampled from See features button border */
+  --shadow-light: rgba(0, 0, 0, 0.05); /* Header shadow */
+  --card-shadow: rgba(0, 0, 0, 0.08); /* Slightly more pronounced for cards */
+  --image-border-gray: #e0e0e0; /* Explicit variable for the thin gray border around images */
+  --card-border-radius: 12px; /* Consistent radius for cards */
+  --image-inner-border-radius: 8px; /* Slightly less rounded than card itself for images */
+
+  /* Variables for dark section */
+  --dark-bg: #1c1c1c; /* Sampled from dark background */
+  --dark-text-light: #f0f0f0; /* Light text on dark background */
+  --dark-text-medium: #b0b0b0; /* Medium light text on dark background */
+
+  /* Pricing specific colors/borders */
+  --pricing-card-border: #e6e6e6; /* Border color for pricing cards */
+  --pricing-text-light: #888888; /* Lighter text for price descriptions */
+
+  /* User Stories section specific */
+  --testimonial-bg-dark: #2a2a2a; /* Card background in dark section */
+  --testimonial-border: #3a3a3a; /* Card border in dark section */
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-light-gray);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* --- Utility Classes (for reusability) --- */
+.lp-button {
+  border: none;
+  border-radius: 6px; /* Slightly rounded corners */
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600; /* Semibold */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+/* --- Container & Layout --- */
+.lp-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent horizontal scroll from minor misalignments */
+}
+
+/* --- Header Styling --- */
+.lp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 48px; /* Adjusted padding based on visual */
+  background-color: var(--white);
+  box-shadow: 0 2px 4px var(--shadow-light);
+  position: sticky; /* Stays at the top */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.lp-logo-nav {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Space between logo and nav */
+}
+
+.lp-logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.lp-logo {
+  height: 28px; /* Sampled height */
+  width: auto;
+  display: block; /* Remove extra space below image */
+}
+
+.lp-nav-links {
+  display: flex;
+  gap: 32px; /* Space between nav items */
+}
+
+.lp-nav-item {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 15px; /* Slightly smaller font for nav */
+  font-weight: 500; /* Medium weight */
+  position: relative; /* For potential underline hover effects */
+}
+
+.lp-nav-item:hover {
+  color: var(--primary-blue); /* Hover color */
+}
+
+.lp-header-join-button {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 10px 20px; /* Smaller padding for header button */
+  font-size: 15px; /* Smaller font for header button */
+  font-weight: 600;
+}
+
+.lp-header-join-button:hover {
+  background-color: #0056cb; /* Slightly darker blue */
+}
+
+/* --- Hero Section Styling --- */
+.lp-hero-section {
+  flex-grow: 1; /* Takes remaining vertical space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content */
+  align-items: center; /* Horizontally center content */
+  text-align: center;
+  padding: 80px 20px; /* Adjusted padding for less gap */
+  background-color: var(--bg-light-gray);
+}
+
+.lp-hero-title {
+  font-size: clamp(36px, 4.2vw, 68px); /* Responsive font size */
+  font-weight: 700; /* Bold */
+  color: var(--text-dark);
+  margin-bottom: 24px; /* Space below title */
+  max-width: 960px; /* Limit width for readability */
+  line-height: 1.15;
+  letter-spacing: -0.02em; /* Slight negative letter spacing */
+}
+
+.lp-hero-subtitle {
+  font-size: clamp(16px, 1.4vw, 24px); /* Responsive font size */
+  color: var(--text-medium);
+  margin-bottom: 48px; /* Space below subtitle */
+  max-width: 780px; /* Limit width for readability */
+  line-height: 1.5;
+}
+
+.lp-cta-buttons {
+  display: flex;
+  gap: 16px; /* Space between buttons */
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  justify-content: center;
+}
+
+.lp-primary-cta {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 18px 36px; /* Larger padding for main CTAs */
+  font-size: 18px; /* Larger font for main CTAs */
+  font-weight: 600;
+}
+
+.lp-primary-cta:hover {
+  background-color: #0056cb;
+}
+
+.lp-secondary-cta {
+  background-color: var(--white);
+  color: var(--primary-blue);
+  border: 1px solid var(--border-light); /* Light border */
+  padding: 18px 36px;
+  border-radius: 6px; /* Ensure consistency with lp-button */
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.lp-secondary-cta:hover {
+  background-color: #f0f8ff; /* Very light blue on hover */
+  border-color: var(--primary-blue); /* Border color changes on hover */
+}
+
+/* --- Tablet Showcase Styling --- */
+.lp-showcase-section {
+  background-color: var(--white);
+  padding: 40px 20px 80px; /* Adjusted padding for less top gap, more bottom gap */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Important to prevent image overflow */
+}
+
+.lp-showcase-image-wrapper {
+  max-width: 1000px; /* Max width of the image wrapper */
+  width: 90%; /* Take 90% of parent width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lp-tab-image {
+  display: block; /* Remove extra space below image */
+  max-width: 100%; /* Ensure image scales down */
+  height: auto; /* Maintain aspect ratio */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 12px; /* Slightly rounded corners for the image container, if desired */
+}
+
+/* --- Longevity Mentor / Features Section --- */
+.lp-longevity-mentor-section {
+  background-color: var(--bg-light-gray);
+  padding: 80px 48px; /* Adjusted padding for less gap */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lp-section-header {
+  max-width: 900px;
+  margin-bottom: 70px; /* Increased space before the cards */
+}
+
+.lp-section-title {
+  font-size: clamp(32px, 3.8vw, 48px); /* Fine-tuned size */
+  font-weight: 700; /* Bold */
+  color: var(--text-dark);
+  margin-bottom: 10px; /* Slightly reduced */
+  line-height: 1.2;
+}
+
+.lp-section-subtitle {
+  font-size: clamp(24px, 2.7vw, 36px); /* Fine-tuned size */
+  font-weight: 600; /* Semibold */
+  color: var(--text-medium);
+  margin-bottom: 20px; /* Slightly reduced */
+  line-height: 1.3;
+}
+
+.lp-section-description {
+  font-size: clamp(16px, 1.2vw, 20px);
+  color: var(--text-medium);
+  line-height: 1.65; /* Slightly increased line height */
+  padding: 0 15px; /* Add some horizontal padding for smaller screens if text gets too wide */
+}
+
+.lp-feature-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  gap: 30px; /* Space between cards */
+  max-width: 1200px;
+  width: 100%;
+}
+
+.lp-feature-card {
+  background-color: var(--white);
+  border-radius: var(--card-border-radius);
+  box-shadow: 0 5px 15px var(--card-shadow);
+  padding: 40px; /* Increased internal padding for cards */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Center text inside card */
+}
+
+.lp-card-title {
+  font-size: 20px; /* Consistent font size */
+  font-weight: 600; /* Semibold */
+  color: var(--text-dark);
+  margin-bottom: 30px; /* Increased space below title for visual separation */
+}
+
+/* --- Image Styling (within feature cards - all framing removed) --- */
+.lp-card-image-wrapper {
+  width: 100%;
+  max-width: 480px; /* Adjusted max width to better fit the image proportion */
+  aspect-ratio: 4/3; /* Maintain a 4:3 aspect ratio for the image container */
+  border: none; /* Explicitly remove border */
+  border-radius: var(--image-inner-border-radius); /* Still apply rounded corners to the image's bounding box */
+  overflow: hidden; /* Ensures image is clipped to border-radius */
+  display: flex; /* To center the image inside */
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Space between image and title */
+}
+
+.lp-card-image {
+  display: block;
+  width: 100%;
+  height: 100%; /* Fill the wrapper */
+  object-fit: cover; /* This will crop the image to fit the aspect-ratio without distortion */
+  border-radius: inherit; /* Inherit the wrapper's border-radius */
+}
+
+/* --- Value Proposition Section (Dark Background) --- */
+.lp-dark-value-section {
+  background-color: var(--dark-bg);
+  padding: 80px 48px; /* Adjusted padding for less gap */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lp-value-blocks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+  gap: 30px; /* Space between blocks */
+  max-width: 1200px;
+  width: 100%;
+}
+
+.lp-value-block {
+  background-color: var(--white);
+  border-radius: var(--card-border-radius);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); /* More pronounced shadow on dark background */
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* --- Image Styling (within value blocks - all framing removed) --- */
+.lp-value-image-wrapper {
+  width: 100%;
+  max-width: 480px; /* Consistent image size with feature cards */
+  aspect-ratio: 4/3; /* Maintain 4:3 aspect ratio */
+  border: none; /* Explicitly remove border */
+  border-radius: var(--image-inner-border-radius);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for image on white bg */
+  overflow: hidden;
+  margin-bottom: 30px; /* Space below image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lp-value-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure image covers the area */
+  border-radius: inherit;
+}
+
+.lp-value-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-dark); /* Text color remains dark for text on white cards */
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.lp-value-description {
+  font-size: 17px;
+  color: var(--text-medium); /* Text color remains medium dark for text on white cards */
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.lp-value-button {
+  padding: 16px 32px; /* Larger buttons */
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.lp-discover-button {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+.lp-discover-button:hover {
+  background-color: #0056cb;
+}
+
+.lp-join-button {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+.lp-join-button:hover {
+  background-color: #0056cb;
+}
+
+/* --- Take Charge of Your Healthspan Section --- */
+.lp-healthspan-section {
+  background-color: var(--bg-light-gray);
+  padding: 80px 48px; /* Adjusted padding for less gap */
+  position: relative; /* For absolute positioning of images */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center content vertically */
+  text-align: center;
+  overflow: hidden; /* Crucial for cropping floating images */
+}
+
+.lp-healthspan-content {
+  max-width: 800px; /* Limit width of main text content */
+  position: relative; /* Ensure text is above images */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lp-healthspan-title {
+  font-size: clamp(36px, 4.2vw, 68px); /* Similar to hero title */
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.lp-healthspan-description {
+  font-size: clamp(16px, 1.4vw, 24px); /* Similar to hero subtitle */
+  color: var(--text-medium);
+  margin-bottom: 48px;
+  max-width: 700px; /* Slightly narrower than title for readability */
+  line-height: 1.5;
+}
+
+.lp-healthspan-button {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 18px 36px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.lp-healthspan-button:hover {
+  background-color: #0056cb;
+}
+
+/* Floating Images Positioning */
+.lp-healthspan-image-top-right,
+.lp-healthspan-image-bottom-left {
+  position: absolute;
+  z-index: 1; /* Behind text content */
+  width: clamp(200px, 20vw, 350px); /* Responsive image width */
+  height: auto;
+  opacity: 0.8; /* Slight transparency to blend */
+  pointer-events: none; /* Do not interfere with clicks on elements below */
+  padding: 0 20px; /* Keep internal padding on the image container */
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.lp-healthspan-image-top-right {
+  top: 5%; /* Adjust as needed */
+  right: 0%; /* Aligns directly with the right edge */
+}
+
+.lp-healthspan-image-bottom-left {
+  bottom: 5%; /* Adjust as needed */
+  left: 0%; /* Aligns directly with the left edge */
+}
+
+.lp-healthspan-image-top-right img,
+.lp-healthspan-image-bottom-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure full image is visible within its bounds */
+    border-radius: 10px; /* Slight rounding for images */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* --- Pricing Section --- */
+.lp-pricing-section {
+  background-color: var(--white);
+  padding: 80px 48px; /* Adjusted padding for less gap */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lp-pricing-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns */
+  gap: 30px; /* Space between cards */
+  max-width: 1200px;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start; /* Align cards at the top */
+}
+
+.lp-pricing-card {
+  background-color: var(--white);
+  border: 1px solid var(--pricing-card-border);
+  border-radius: var(--card-border-radius);
+  box-shadow: 0 5px 15px var(--card-shadow);
+  padding: 40px; /* Internal padding */
+  display: flex;
+  flex-direction: column;
+  text-align: left; /* Default text alignment */
+}
+
+.lp-price-header {
+  text-align: center; /* Center price and description */
+  margin-bottom: 30px; /* Space below price header */
+}
+
+.lp-price {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1;
+  margin-bottom: 8px; /* Space below price value */
+}
+
+.lp-price-description {
+  font-size: 16px;
+  color: var(--pricing-text-light);
+  line-height: 1;
+}
+
+.lp-plan-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 10px; /* Space below plan name */
+}
+
+.lp-plan-tagline {
+  font-size: 17px;
+  color: var(--text-medium);
+  margin-bottom: 30px; /* Space below tagline */
+  line-height: 1.5;
+}
+
+.lp-pricing-button {
+  width: 100%; /* Full width button */
+  padding: 16px 24px;
+  font-size: 17px;
+  margin-bottom: 30px; /* Space below button */
+}
+
+.lp-primary-pricing-button {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+.lp-primary-pricing-button:hover {
+  background-color: #0056cb;
+}
+
+.lp-secondary-pricing-button {
+  background-color: var(--white);
+  color: var(--primary-blue);
+  border: 1px solid var(--primary-blue);
+}
+
+.lp-secondary-pricing-button:hover {
+  background-color: #f0f8ff; /* Very light blue on hover */
+}
+
+.lp-includes-section {
+  margin-top: 30px; /* Space above includes section */
+  padding-top: 30px; /* Padding for the top border */
+  border-top: 1px solid var(--pricing-card-border); /* Separator line */
+}
+
+.lp-includes-header {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  margin-bottom: 20px; /* Space below header */
+  letter-spacing: 0.05em; /* Slight letter spacing */
+}
+
+.lp-includes-list {
+  list-style: none; /* Remove default list style */
+  padding: 0;
+  margin: 0;
+}
+
+.lp-includes-list li {
+  display: flex;
+  align-items: flex-start; /* Align icon and text at the top */
+  margin-bottom: 12px; /* Space between list items */
+  font-size: 16px;
+  color: var(--text-medium);
+  line-height: 1.4;
+}
+
+.lp-includes-list li:last-child {
+  margin-bottom: 0; /* No margin for the last item */
+}
+
+.lp-check-icon {
+  display: inline-block;
+  width: 18px; /* Size of the checkmark icon */
+  height: 18px;
+  margin-right: 12px; /* Space between icon and text */
+  flex-shrink: 0; /* Prevent icon from shrinking */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23006aff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E"); /* Blue checkmark SVG */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+/* --- User Stories / Testimonials Section --- */
+.lp-user-stories-section {
+  background-color: var(--dark-bg); /* Dark background */
+  padding: 80px 48px; /* Adjusted padding for less gap */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--dark-text-light); /* Light text on dark background */
+}
+
+.lp-user-stories-header {
+  margin-bottom: 70px; /* Space before the cards */
+}
+
+.lp-user-stories-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--dark-text-medium); /* Slightly lighter than main title text */
+  margin-bottom: 10px;
+  letter-spacing: 0.08em; /* Spread letters a bit */
+}
+
+.lp-user-stories-title {
+  color: var(--dark-text-light); /* White/light text for title */
+  margin-bottom: 20px;
+}
+
+.lp-user-stories-description {
+  color: var(--dark-text-medium); /* Lighter text for description */
+  margin-bottom: 0; /* Already has margin from lp-section-header */
+}
+
+.lp-testimonial-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four columns */
+  gap: 30px; /* Space between cards */
+  max-width: 1200px;
+  width: 100%;
+}
+
+.lp-testimonial-card {
+  background-color: var(--testimonial-bg-dark); /* Darker background for cards */
+  border: 1px solid var(--testimonial-border); /* Subtle border */
+  border-radius: var(--card-border-radius);
+  padding: 30px; /* Internal padding */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align content to the left */
+  text-align: left; /* Ensure text aligns left */
+}
+
+.lp-testimonial-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Space below header block */
+}
+
+.lp-testimonial-avatar {
+  width: 56px; /* Size of avatar */
+  height: 56px;
+  border-radius: 50%; /* Circular avatar */
+  object-fit: cover;
+  margin-right: 15px; /* Space between avatar and info */
+  flex-shrink: 0; /* Prevent avatar from shrinking */
+}
+
+.lp-testimonial-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.lp-testimonial-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-text-light); /* Light text for name */
+  margin: 0;
+  line-height: 1.3;
+}
+
+.lp-testimonial-company {
+  font-size: 15px;
+  color: var(--dark-text-medium); /* Medium light text for company */
+  margin: 0;
+  line-height: 1.3;
+}
+
+.lp-testimonial-quote {
+  font-size: 17px;
+  color: var(--dark-text-light); /* Light text for quote */
+  margin-bottom: 20px; /* Space below quote */
+  flex-grow: 1; /* Allows quote to take available space */
+}
+
+.lp-testimonial-tag {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary-blue); /* Blue for the tag */
+  background-color: rgba(0, 106, 255, 0.1); /* Light blue background for tag */
+  padding: 8px 12px;
+  border-radius: 4px;
+  align-self: flex-start; /* Align tag to the left */
+}
+
+
+/* --- FAQ Section --- */
+.lp-faq-section {
+  background-color: var(--bg-light-gray); /* Light background */
+  padding: 80px 48px; /* Adjusted padding for less gap */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--text-dark); /* Dark text on light background */
+}
+
+.lp-faq-header {
+  margin-bottom: 70px; /* Space before the FAQ items */
+}
+
+.lp-faq-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-medium); /* Darker than user stories subtitle */
+  margin-bottom: 10px;
+  letter-spacing: 0.08em;
+}
+
+.lp-faq-title {
+  color: var(--text-dark); /* Dark text for title */
+  margin-bottom: 20px;
+}
+
+.lp-faq-description {
+  color: var(--text-medium); /* Medium dark text for description */
+  margin-bottom: 0;
+}
+
+.lp-faq-items-container {
+  max-width: 800px; /* Max width for the FAQ content */
+  width: 100%;
+  margin-bottom: 50px; /* Space before contact link */
+  display: flex;
+  flex-direction: column;
+  /* gap: 5px; Space between FAQ items */
+}
+
+.lp-faq-item {
+  text-align: left; /* Align text to the left within each item */
+  padding-bottom: 25px; /* Padding for border-bottom */
+  border-bottom: 1px solid var(--border-light); /* Separator line */
+}
+
+.lp-faq-item:last-child {
+  border-bottom: none; /* No border for the last item */
+  padding-bottom: 0;
+}
+
+.lp-faq-question {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 10px; /* Space below question */
+  line-height: 1.4;
+}
+
+.lp-faq-answer {
+  font-size: 17px;
+  color: var(--text-medium);
+  line-height: 1.6;
+}
+
+.lp-faq-contact-link {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-blue);
+  text-decoration: none;
+  display: inline-flex; /* For arrow alignment */
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+.lp-faq-contact-link:hover {
+  color: #0056cb;
+}
+
+.lp-arrow-right {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.lp-faq-contact-link:hover .lp-arrow-right {
+  transform: translateX(5px);
+}
+
+/* --- Webflow Badge (Bottom Right) --- */
+.lp-webflow-badge {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Space between icon and text */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* More pronounced shadow */
+  z-index: 1001;
+  font-weight: 500;
+}
+
+/* For the Webflow icon - you'd replace this with an actual SVG/image */
+.lp-webflow-icon {
+  display: inline-block;
+  width: 14px; /* Icon size */
+  height: 14px;
+  background-color: var(--text-light); /* Placeholder color */
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>') no-repeat center center;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>') no-repeat center center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablets and larger phones (landscape) */
+@media (max-width: 1024px) {
+  .lp-header {
+    padding: 16px 30px;
+  }
+  .lp-nav-links {
+    gap: 25px;
+  }
+  .lp-hero-title {
+    font-size: clamp(32px, 5vw, 60px);
+  }
+  .lp-hero-subtitle {
+    font-size: clamp(15px, 2vw, 22px);
+  }
+  .lp-primary-cta, .lp-secondary-cta {
+    padding: 15px 30px;
+    font-size: 17px;
+  }
+  .lp-showcase-section {
+    padding: 30px 20px 60px; /* Adjusted further for less gap */
+  }
+
+  /* Longevity mentor section adjustments */
+  .lp-longevity-mentor-section {
+    padding: 70px 30px; /* Adjusted */
+  }
+  .lp-section-header {
+    margin-bottom: 50px;
+  }
+  .lp-feature-cards-grid {
+    gap: 20px;
+  }
+  .lp-feature-card {
+    padding: 30px;
+  }
+  .lp-card-image-wrapper {
+    max-width: 400px; /* Adjust max-width for smaller screens */
+  }
+
+  /* Value section adjustments */
+  .lp-dark-value-section {
+    padding: 70px 30px; /* Adjusted */
+  }
+  .lp-value-blocks-grid {
+    gap: 20px;
+  }
+  .lp-value-block {
+    padding: 30px;
+  }
+  .lp-value-title {
+    font-size: 22px;
+  }
+  .lp-value-description {
+    font-size: 16px;
+  }
+  .lp-value-button {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+
+  /* Healthspan section adjustments */
+  .lp-healthspan-section {
+    padding: 70px 30px; /* Adjusted */
+  }
+  .lp-healthspan-title {
+    font-size: clamp(32px, 5vw, 60px);
+  }
+  .lp-healthspan-description {
+    font-size: clamp(15px, 2vw, 22px);
+  }
+  .lp-healthspan-button {
+    padding: 15px 30px;
+    font-size: 17px;
+  }
+  .lp-healthspan-image-top-right,
+  .lp-healthspan-image-bottom-left {
+    width: clamp(150px, 15vw, 250px); /* Scale down images */
+  }
+
+  /* Pricing section adjustments */
+  .lp-pricing-section {
+    padding: 70px 30px; /* Adjusted */
+  }
+  .lp-pricing-cards-grid {
+    gap: 20px;
+    grid-template-columns: 1fr; /* Stack cards on smaller tablets */
+    max-width: 400px; /* Limit width when stacked */
+  }
+  .lp-pricing-card {
+    padding: 30px;
+  }
+  .lp-price {
+    font-size: 40px;
+  }
+  .lp-plan-name {
+    font-size: 22px;
+  }
+  .lp-plan-tagline {
+    font-size: 16px;
+  }
+  .lp-pricing-button {
+    padding: 14px 24px;
+    font-size: 16px;
+  }
+  .lp-includes-list li {
+    font-size: 15px;
+  }
+  .lp-check-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+  }
+
+  /* User Stories section adjustments */
+  .lp-user-stories-section {
+    padding: 70px 30px; /* Adjusted */
+  }
+  .lp-user-stories-header {
+    margin-bottom: 50px;
+  }
+  .lp-testimonial-cards-grid {
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 20px;
+  }
+  .lp-testimonial-card {
+    padding: 25px;
+  }
+  .lp-testimonial-avatar {
+    width: 48px;
+    height: 48px;
+    margin-right: 12px;
+  }
+  .lp-testimonial-name {
+    font-size: 17px;
+  }
+  .lp-testimonial-company {
+    font-size: 14px;
+  }
+  .lp-testimonial-quote {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  .lp-testimonial-tag {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  /* FAQ section adjustments */
+  .lp-faq-section {
+    padding: 70px 30px; /* Adjusted */
+  }
+  .lp-faq-header {
+    margin-bottom: 50px;
+  }
+  .lp-faq-items-container {
+    gap: 20px;
+  }
+  .lp-faq-item {
+    padding-bottom: 20px;
+  }
+  .lp-faq-question {
+    font-size: 20px;
+  }
+  .lp-faq-answer {
+    font-size: 16px;
+  }
+  .lp-faq-contact-link {
+    font-size: 17px;
+  }
+}
+
+/* Smaller tablets and large mobiles */
+@media (max-width: 768px) {
+  .lp-header {
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+
+  .lp-logo-nav {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .lp-nav-links {
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .lp-header-join-button {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .lp-hero-section {
+    padding: 60px 15px;
+  }
+
+  .lp-hero-title {
+    font-size: clamp(28px, 7vw, 48px);
+    margin-bottom: 15px;
+  }
+
+  .lp-hero-subtitle {
+    font-size: clamp(14px, 3.5vw, 18px);
+    margin-bottom: 30px;
+  }
+
+  .lp-cta-buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 300px;
+  }
+  .lp-primary-cta, .lp-secondary-cta {
+    width: 100%;
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+  .lp-showcase-section {
+    padding: 30px 15px 50px; /* Adjusted */
+  }
+
+  /* Longevity mentor section adjustments */
+  .lp-longevity-mentor-section {
+    padding: 60px 20px; /* Adjusted */
+  }
+  .lp-section-header {
+    margin-bottom: 40px;
+  }
+  .lp-feature-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .lp-section-title {
+    font-size: clamp(24px, 6vw, 40px);
+  }
+  .lp-section-subtitle {
+    font-size: clamp(18px, 4vw, 30px);
+  }
+  .lp-section-description {
+    font-size: clamp(15px, 3.5vw, 18px);
+  }
+  .lp-feature-card {
+    padding: 25px;
+  }
+  .lp-card-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .lp-card-image-wrapper {
+    /* No specific changes for image wrapper padding in small mobile */
+  }
+
+  /* Value section adjustments */
+  .lp-dark-value-section {
+    padding: 60px 20px; /* Adjusted */
+  }
+  .lp-value-blocks-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .lp-value-block {
+    padding: 25px;
+  }
+  .lp-value-image-wrapper {
+    max-width: 100%;
+  }
+
+  /* Healthspan section adjustments */
+  .lp-healthspan-section {
+    padding: 60px 20px; /* Adjusted */
+  }
+  /* Floating images remain hidden on small screens to save space */
+  .lp-healthspan-image-top-right,
+  .lp-healthspan-image-bottom-left {
+    display: none;
+  }
+  .lp-healthspan-title {
+    font-size: clamp(24px, 6vw, 40px);
+  }
+  .lp-healthspan-description {
+    font-size: clamp(15px, 3.5vw, 18px);
+  }
+  .lp-healthspan-button {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+
+  /* Pricing section adjustments */
+  .lp-pricing-section {
+    padding: 60px 20px; /* Adjusted */
+  }
+  .lp-pricing-cards-grid {
+    max-width: 350px; /* Further limit width on smaller tablets/mobiles */
+  }
+  .lp-pricing-card {
+    padding: 25px;
+  }
+  .lp-price {
+    font-size: 36px;
+  }
+  .lp-plan-name {
+    font-size: 22px;
+  }
+  .lp-plan-tagline {
+    font-size: 16px;
+  }
+  .lp-pricing-button {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+  .lp-includes-list li {
+    font-size: 15px;
+  }
+  .lp-check-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+  }
+
+  /* User Stories section adjustments */
+  .lp-user-stories-section {
+    padding: 60px 20px; /* Adjusted */
+  }
+  .lp-user-stories-header {
+    margin-bottom: 40px;
+  }
+  .lp-testimonial-cards-grid {
+    grid-template-columns: 1fr; /* Single column on mobiles */
+    max-width: 400px; /* Limit width when stacked */
+  }
+  .lp-testimonial-card {
+    padding: 20px;
+  }
+  .lp-testimonial-quote {
+    font-size: 15px;
+  }
+
+  /* FAQ section adjustments */
+  .lp-faq-section {
+    padding: 60px 20px; /* Adjusted */
+  }
+  .lp-faq-header {
+    margin-bottom: 40px;
+  }
+  .lp-faq-question {
+    font-size: clamp(18px, 4.5vw, 20px);
+  }
+  .lp-faq-answer {
+    font-size: clamp(15px, 3.5vw, 16px);
+  }
+  .lp-faq-contact-link {
+    font-size: 16px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .lp-header {
+    padding: 10px 15px;
+  }
+
+  .lp-nav-links {
+    gap: 12px;
+    font-size: 14px;
+  }
+
+  .lp-hero-section {
+    padding: 40px 10px;
+  }
+
+  .lp-hero-title {
+    font-size: 8vw;
+  }
+
+  .lp-hero-subtitle {
+    font-size: 4vw;
+  }
+
+  .lp-cta-buttons {
+    max-width: 280px;
+  }
+
+  .lp-primary-cta, .lp-secondary-cta {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+  .lp-showcase-section {
+    padding: 20px 10px 40px; /* Adjusted */
+  }
+
+  /* Longevity mentor section adjustments */
+  .lp-longevity-mentor-section {
+    padding: 40px 15px; /* Adjusted */
+  }
+  .lp-section-header {
+    margin-bottom: 30px;
+  }
+  .lp-feature-card {
+    padding: 20px;
+  }
+  .lp-card-title {
+    font-size: 17px;
+    margin-bottom: 15px;
+  }
+  .lp-card-image-wrapper {
+    /* No specific changes for image wrapper padding in small mobile */
+  }
+
+  /* Value section adjustments */
+  .lp-dark-value-section {
+    padding: 40px 15px; /* Adjusted */
+  }
+  .lp-value-block {
+    padding: 20px;
+  }
+  .lp-value-title {
+    font-size: 20px;
+  }
+  .lp-value-description {
+    font-size: 15px;
+  }
+  .lp-value-button {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+
+  /* Healthspan section adjustments */
+  .lp-healthspan-section {
+    padding: 40px 15px; /* Adjusted */
+  }
+  /* Floating images remain hidden */
+  .lp-healthspan-title {
+    font-size: 8vw;
+  }
+  .lp-healthspan-description {
+    font-size: 4vw;
+  }
+  .lp-healthspan-button {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+
+  /* Pricing section adjustments */
+  .lp-pricing-section {
+    padding: 40px 15px; /* Adjusted */
+  }
+  .lp-pricing-cards-grid {
+    gap: 20px;
+  }
+  .lp-pricing-card {
+    padding: 20px;
+  }
+  .lp-price {
+    font-size: 32px;
+  }
+  .lp-plan-name {
+    font-size: 18px;
+  }
+  .lp-plan-tagline {
+    font-size: 14px;
+  }
+  .lp-pricing-button {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+  .lp-includes-list li {
+    font-size: 13px;
+  }
+  .lp-check-icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+  }
+
+  /* User Stories section adjustments */
+  .lp-user-stories-section {
+    padding: 40px 15px; /* Adjusted */
+  }
+  .lp-user-stories-header {
+    margin-bottom: 30px;
+  }
+  .lp-testimonial-card {
+    padding: 15px;
+  }
+  .lp-testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  .lp-testimonial-name {
+    font-size: 16px;
+  }
+  .lp-testimonial-company {
+    font-size: 13px;
+  }
+  .lp-testimonial-quote {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  .lp-testimonial-tag {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  /* FAQ section adjustments */
+  .lp-faq-section {
+    padding: 40px 15px; /* Adjusted */
+  }
+  .lp-faq-header {
+    margin-bottom: 30px;
+  }
+  .lp-faq-items-container {
+    gap: 15px;
+  }
+  .lp-faq-item {
+    padding-bottom: 15px;
+  }
+  .lp-faq-question {
+    font-size: 17px;
+  }
+  .lp-faq-answer {
+    font-size: 14px;
+  }
+  .lp-faq-contact-link {
+    font-size: 15px;
+  }
+
+  .lp-webflow-badge {
+    bottom: 15px;
+    right: 15px;
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,172 @@
+/* --- Take Charge of Your Healthspan Section --- */
+/* The variables must be accessible here. You can either:
+   1. Import a global variables file.
+   2. Define them here for this component's scope (less ideal for large projects).
+   3. Ensure this CSS is bundled *after* a main CSS file defining the variables.
+   For this example, I'll include the necessary variables for self-containment,
+   but in a real project, they'd typically be globally defined or imported.
+*/
+
+:root {
+  --primary-blue: #006aff;
+  --text-dark: #222222;
+  --text-medium: #5a5a5a;
+  --bg-light-gray: #f9f9f9;
+  --white: #ffffff;
+}
+
+.lp-button {
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  white-space: nowrap;
+}
+
+
+.lp-healthspan-section {
+  background-color: var(--bg-light-gray); /* */
+  padding: 80px 48px; /* Adjusted padding for less gap */
+  position: relative; /* For absolute positioning of images */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center content vertically */
+  text-align: center;
+  overflow: hidden; /* Crucial for cropping floating images */
+}
+
+.lp-healthspan-content {
+  max-width: 800px; /* Limit width of main text content */
+  position: relative; /* Ensure text is above images */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lp-healthspan-title {
+  font-size: clamp(36px, 4.2vw, 68px); /* Similar to hero title */
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.lp-healthspan-description {
+  font-size: clamp(16px, 1.4vw, 24px); /* Similar to hero subtitle */
+  color: var(--text-medium);
+  margin-bottom: 48px;
+  max-width: 700px; /* Slightly narrower than title for readability */
+  line-height: 1.5;
+}
+
+.lp-healthspan-button {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 18px 36px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.lp-healthspan-button:hover {
+  background-color: #0056cb;
+}
+
+/* Floating Images Positioning */
+.lp-healthspan-image-top-right,
+.lp-healthspan-image-bottom-left {
+  position: absolute;
+  z-index: 1; /* Behind text content */
+  width: clamp(200px, 20vw, 350px); /* Responsive image width */
+  height: auto;
+  opacity: 0.8; /* Slight transparency to blend */
+  pointer-events: none; /* Do not interfere with clicks on elements below */
+  padding: 0 20px; /* Keep internal padding on the image container */
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.lp-healthspan-image-top-right {
+  top: 5%; /* Adjust as needed */
+  right: 0%; /* Aligns directly with the right edge */
+}
+
+.lp-healthspan-image-bottom-left {
+  bottom: 5%; /* Adjust as needed */
+  left: 0%; /* Aligns directly with the left edge */
+}
+
+.lp-healthspan-image-top-right img,
+.lp-healthspan-image-bottom-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure full image is visible within its bounds */
+    border-radius: 10px; /* Slight rounding for images */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* --- Media Queries for Responsiveness (copied from LandingPage.css for this section) --- */
+
+@media (max-width: 1024px) {
+  /* Healthspan section adjustments */
+  .lp-healthspan-section {
+    padding: 70px 30px;
+  }
+  .lp-healthspan-title {
+    font-size: clamp(32px, 5vw, 60px);
+  }
+  .lp-healthspan-description {
+    font-size: clamp(15px, 2vw, 22px);
+  }
+  .lp-healthspan-button {
+    padding: 15px 30px;
+    font-size: 17px;
+  }
+  .lp-healthspan-image-top-right,
+  .lp-healthspan-image-bottom-left {
+    width: clamp(150px, 15vw, 250px); /* Scale down images */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Healthspan section adjustments */
+  .lp-healthspan-section {
+    padding: 60px 20px;
+  }
+  /* Floating images remain hidden on small screens to save space */
+  .lp-healthspan-image-top-right,
+  .lp-healthspan-image-bottom-left {
+    display: none;
+  }
+  .lp-healthspan-title {
+    font-size: clamp(24px, 6vw, 40px);
+  }
+  .lp-healthspan-description {
+    font-size: clamp(15px, 3.5vw, 18px);
+  }
+  .lp-healthspan-button {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Healthspan section adjustments */
+  .lp-healthspan-section {
+    padding: 40px 15px;
+  }
+  /* Floating images remain hidden */
+  .lp-healthspan-title {
+    font-size: 8vw;
+  }
+  .lp-healthspan-description {
+    font-size: 4vw;
+  }
+  .lp-healthspan-button {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+}

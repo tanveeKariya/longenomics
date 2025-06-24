@@ -1,0 +1,261 @@
+.footer-container {
+  background-color: #f8f8f8; /* Light gray background */
+  color: #333; /* Darker text color */
+  padding: 60px 80px 20px; /* Top, horizontal, bottom padding */
+  font-family: 'Arial', sans-serif; /* Example font */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* For positioning the Webflow badge */
+}
+
+.footer-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px; /* Max width for content */
+  margin-bottom: 50px;
+}
+
+.footer-left-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+  flex-shrink: 0; /* Prevent it from shrinking */
+}
+
+.footer-logo-section {
+  /* If you have a specific size for your logo */
+  width: 180px; /* Adjust as needed */
+  height: auto;
+}
+
+.longenomics-logo {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Remove extra space below image */
+}
+
+/* If using text as logo placeholder */
+.longenomics-logo-text {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #333;
+}
+
+
+.join-now-button {
+  background-color: #004dff; /* Blue button color */
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  min-width: 120px; /* Ensures button has a minimum width */
+}
+
+.join-now-button:hover {
+  background-color: #003bbd; /* Darker blue on hover */
+}
+
+.footer-links-section {
+  display: flex;
+  gap: 60px; /* Space between columns */
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-column h3 {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #777; /* Lighter grey for links */
+  font-size: 0.95em;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #004dff; /* Blue on hover */
+}
+
+.footer-bottom-bar {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align social icons to the right */
+  margin-bottom: 20px;
+  position: relative; /* For positioning the line */
+}
+
+.footer-horizontal-line {
+  width: 100%;
+  border-top: 1px solid #e0e0e0; /* Light gray line */
+  margin-top: 20px; /* Space between icons and line */
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px; /* Space between social icons */
+  margin-bottom: 15px; /* Space between icons and line */
+  padding-right: 5px; /* Small padding to align with other content */
+}
+
+.social-icons a img {
+  width: 24px; /* Size of social icons */
+  height: 24px;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+.social-icons a img:hover {
+  opacity: 0.7;
+}
+
+.footer-copyright-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
+  padding-bottom: 20px; /* Padding for the very bottom */
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-legal-links a {
+  text-decoration: none;
+  color: #777;
+  font-size: 0.9em;
+  transition: color 0.3s ease;
+}
+
+.footer-legal-links a:hover {
+  color: #004dff;
+}
+
+.footer-copyright-text {
+  color: #777;
+  font-size: 0.9em;
+}
+
+.made-in-webflow {
+  position: absolute;
+  bottom: 0px; /* Adjust as needed */
+  right: 0px; /* Adjust as needed */
+}
+
+.made-in-webflow img {
+  width: 100px; /* Adjust size as needed */
+  height: auto;
+  display: block;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .footer-container {
+    padding: 50px 40px 20px;
+  }
+
+  .footer-links-section {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px; /* Space between left section and links section */
+    margin-bottom: 40px;
+  }
+
+  .footer-links-section {
+    display: grid; /* Use grid for better layout on smaller screens */
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 30px; /* Adjust gap for grid */
+    width: 100%;
+    max-width: 500px; /* Constrain width of link columns */
+  }
+
+  .footer-left-section {
+    align-items: center;
+  }
+
+  .footer-bottom-bar {
+    align-items: center; /* Center social icons */
+  }
+
+  .social-icons {
+    margin-bottom: 20px; /* More space for icons */
+    padding-right: 0;
+  }
+
+  .footer-copyright-section {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .footer-legal-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 40px 20px 15px;
+  }
+
+  .footer-links-section {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+    gap: 25px;
+  }
+
+  .footer-column h3 {
+    text-align: center;
+  }
+
+  .footer-column ul {
+    text-align: center;
+  }
+
+  .join-now-button {
+    width: 100%;
+    max-width: 200px; /* Constrain button width */
+  }
+
+  .made-in-webflow {
+    position: static; /* Remove absolute positioning on small screens */
+    margin-top: 20px;
+    align-self: center; /* Center the badge */
+  }
+}
