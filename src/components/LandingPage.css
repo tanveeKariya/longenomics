@@ -1,30 +1,23 @@
-/* --- Global Styles & Font Setup --- */
 :root {
-  --primary-blue: #006aff; /* Sampled from Join button */
-  --text-dark: #222222;    /* Sampled from H1 */
-  --text-medium: #5a5a5a; /* Sampled from subtitle, description */
-  --text-light: #888888;  /* Sampled from nav items and badge */
-  --bg-light-gray: #f9f9f9; /* Sampled from background */
+  --primary-blue: #006aff;
+  --text-dark: #222222;
+  --text-medium: #5a5a5a;
+  --text-light: #888888;
+  --bg-light-gray: #f9f9f9;
   --white: #ffffff;
-  --border-light: #e0e0e0; /* Sampled from See features button border */
-  --shadow-light: rgba(0, 0, 0, 0.05); /* Header shadow */
-  --card-shadow: rgba(0, 0, 0, 0.08); /* Slightly more pronounced for cards */
-  --image-border-gray: #e0e0e0; /* Explicit variable for the thin gray border around images */
-  --card-border-radius: 12px; /* Consistent radius for cards */
-  --image-inner-border-radius: 8px; /* Slightly less rounded than card itself for images */
-
-  /* Variables for dark section */
-  --dark-bg: #1c1c1c; /* Sampled from dark background */
-  --dark-text-light: #f0f0f0; /* Light text on dark background */
-  --dark-text-medium: #b0b0b0; /* Medium light text on dark background */
-
-  /* Pricing specific colors/borders */
-  --pricing-card-border: #e6e6e6; /* Border color for pricing cards */
-  --pricing-text-light: #888888; /* Lighter text for price descriptions */
-
-  /* User Stories section specific */
-  --testimonial-bg-dark: #2a2a2a; /* Card background in dark section */
-  --testimonial-border: #3a3a3a; /* Card border in dark section */
+  --border-light: #e0e0e0;
+  --shadow-light: rgba(0, 0, 0, 0.05);
+  --card-shadow: rgba(0, 0, 0, 0.08);
+  --image-border-gray: #e0e0e0;
+  --card-border-radius: 12px;
+  --image-inner-border-radius: 8px;
+  --dark-bg: #1c1c1c;
+  --dark-text-light: #f0f0f0;
+  --dark-text-medium: #b0b0b0;
+  --pricing-card-border: #e6e6e6;
+  --pricing-text-light: #888888;
+  --testimonial-bg-dark: #2a2a2a;
+  --testimonial-border: #3a3a3a;
 }
 
 body {
@@ -37,46 +30,43 @@ body {
   line-height: 1.6;
 }
 
-/* --- Utility Classes (for reusability) --- */
 .lp-button {
   border: none;
-  border-radius: 6px; /* Slightly rounded corners */
+  border-radius: 6px;
   padding: 12px 24px;
   font-size: 16px;
-  font-weight: 600; /* Semibold */
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-  white-space: nowrap; /* Prevent button text from wrapping */
+  white-space: nowrap;
 }
 
-/* --- Container & Layout --- */
 .lp-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   box-sizing: border-box;
-  overflow: hidden; /* Prevent horizontal scroll from minor misalignments */
+  overflow: hidden;
 }
 
-/* --- Header Styling --- */
 .lp-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 48px; /* Adjusted padding based on visual */
+  padding: 18px 48px;
   background-color: var(--white);
   box-shadow: 0 2px 4px var(--shadow-light);
-  position: sticky; /* Stays at the top */
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
-  box-sizing: border-box; /* Include padding in width */
+  box-sizing: border-box;
 }
 
 .lp-logo-nav {
   display: flex;
   align-items: center;
-  gap: 40px; /* Space between logo and nav */
+  gap: 40px;
 }
 
 .lp-logo-wrapper {
@@ -85,82 +75,81 @@ body {
 }
 
 .lp-logo {
-  height: 28px; /* Sampled height */
+  height: 28px;
   width: auto;
-  display: block; /* Remove extra space below image */
+  display: block;
 }
 
 .lp-nav-links {
   display: flex;
-  gap: 32px; /* Space between nav items */
+  gap: 32px;
 }
 
 .lp-nav-item {
   text-decoration: none;
   color: var(--text-light);
-  font-size: 15px; /* Slightly smaller font for nav */
-  font-weight: 500; /* Medium weight */
-  position: relative; /* For potential underline hover effects */
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
 }
 
 .lp-nav-item:hover {
-  color: var(--primary-blue); /* Hover color */
+  color: var(--primary-blue);
 }
 
 .lp-header-join-button {
   background-color: var(--primary-blue);
   color: var(--white);
-  padding: 10px 20px; /* Smaller padding for header button */
-  font-size: 15px; /* Smaller font for header button */
+  padding: 10px 20px;
+  font-size: 15px;
   font-weight: 600;
 }
 
 .lp-header-join-button:hover {
-  background-color: #0056cb; /* Slightly darker blue */
+  background-color: #0056cb;
 }
 
-/* --- Hero Section Styling --- */
 .lp-hero-section {
-  flex-grow: 1; /* Takes remaining vertical space */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Vertically center content */
-  align-items: center; /* Horizontally center content */
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 80px 20px; /* Adjusted padding for less gap */
+  padding: 80px 20px;
   background-color: var(--bg-light-gray);
 }
 
 .lp-hero-title {
-  font-size: clamp(36px, 4.2vw, 68px); /* Responsive font size */
-  font-weight: 700; /* Bold */
+  font-size: clamp(36px, 4.2vw, 68px);
+  font-weight: 700;
   color: var(--text-dark);
-  margin-bottom: 24px; /* Space below title */
-  max-width: 960px; /* Limit width for readability */
+  margin-bottom: 24px;
+  max-width: 960px;
   line-height: 1.15;
-  letter-spacing: -0.02em; /* Slight negative letter spacing */
+  letter-spacing: -0.02em;
 }
 
 .lp-hero-subtitle {
-  font-size: clamp(16px, 1.4vw, 24px); /* Responsive font size */
+  font-size: clamp(16px, 1.4vw, 24px);
   color: var(--text-medium);
-  margin-bottom: 48px; /* Space below subtitle */
-  max-width: 780px; /* Limit width for readability */
+  margin-bottom: 48px;
+  max-width: 780px;
   line-height: 1.5;
 }
 
 .lp-cta-buttons {
   display: flex;
-  gap: 16px; /* Space between buttons */
-  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  gap: 16px;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
 .lp-primary-cta {
   background-color: var(--primary-blue);
   color: var(--white);
-  padding: 18px 36px; /* Larger padding for main CTAs */
-  font-size: 18px; /* Larger font for main CTAs */
+  padding: 18px 36px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -171,48 +160,46 @@ body {
 .lp-secondary-cta {
   background-color: var(--white);
   color: var(--primary-blue);
-  border: 1px solid var(--border-light); /* Light border */
+  border: 1px solid var(--border-light);
   padding: 18px 36px;
-  border-radius: 6px; /* Ensure consistency with lp-button */
+  border-radius: 6px;
   font-size: 18px;
   font-weight: 600;
 }
 
 .lp-secondary-cta:hover {
-  background-color: #f0f8ff; /* Very light blue on hover */
-  border-color: var(--primary-blue); /* Border color changes on hover */
+  background-color: #f0f8ff;
+  border-color: var(--primary-blue);
 }
 
-/* --- Tablet Showcase Styling --- */
 .lp-showcase-section {
   background-color: var(--white);
-  padding: 40px 20px 80px; /* Adjusted padding for less top gap, more bottom gap */
+  padding: 40px 20px 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Important to prevent image overflow */
+  overflow: hidden;
 }
 
 .lp-showcase-image-wrapper {
-  max-width: 1000px; /* Max width of the image wrapper */
-  width: 90%; /* Take 90% of parent width */
+  max-width: 1000px;
+  width: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .lp-tab-image {
-  display: block; /* Remove extra space below image */
-  max-width: 100%; /* Ensure image scales down */
-  height: auto; /* Maintain aspect ratio */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  border-radius: 12px; /* Slightly rounded corners for the image container, if desired */
+  display: block;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
 }
 
-/* --- Longevity Mentor / Features Section --- */
 .lp-longevity-mentor-section {
   background-color: var(--bg-light-gray);
-  padding: 80px 48px; /* Adjusted padding for less gap */
+  padding: 80px 48px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -221,36 +208,36 @@ body {
 
 .lp-section-header {
   max-width: 900px;
-  margin-bottom: 70px; /* Increased space before the cards */
+  margin-bottom: 70px;
 }
 
 .lp-section-title {
-  font-size: clamp(32px, 3.8vw, 48px); /* Fine-tuned size */
-  font-weight: 700; /* Bold */
+  font-size: clamp(32px, 3.8vw, 48px);
+  font-weight: 700;
   color: var(--text-dark);
-  margin-bottom: 10px; /* Slightly reduced */
+  margin-bottom: 10px;
   line-height: 1.2;
 }
 
 .lp-section-subtitle {
-  font-size: clamp(24px, 2.7vw, 36px); /* Fine-tuned size */
-  font-weight: 600; /* Semibold */
+  font-size: clamp(24px, 2.7vw, 36px);
+  font-weight: 600;
   color: var(--text-medium);
-  margin-bottom: 20px; /* Slightly reduced */
+  margin-bottom: 20px;
   line-height: 1.3;
 }
 
 .lp-section-description {
   font-size: clamp(16px, 1.2vw, 20px);
   color: var(--text-medium);
-  line-height: 1.65; /* Slightly increased line height */
-  padding: 0 15px; /* Add some horizontal padding for smaller screens if text gets too wide */
+  line-height: 1.65;
+  padding: 0 15px;
 }
 
 .lp-feature-cards-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two columns */
-  gap: 30px; /* Space between cards */
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
   max-width: 1200px;
   width: 100%;
 }
@@ -259,46 +246,44 @@ body {
   background-color: var(--white);
   border-radius: var(--card-border-radius);
   box-shadow: 0 5px 15px var(--card-shadow);
-  padding: 40px; /* Increased internal padding for cards */
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content horizontally */
-  text-align: center; /* Center text inside card */
+  align-items: center;
+  text-align: center;
 }
 
 .lp-card-title {
-  font-size: 20px; /* Consistent font size */
-  font-weight: 600; /* Semibold */
+  font-size: 20px;
+  font-weight: 600;
   color: var(--text-dark);
-  margin-bottom: 30px; /* Increased space below title for visual separation */
+  margin-bottom: 30px;
 }
 
-/* --- Image Styling (within feature cards - all framing removed) --- */
 .lp-card-image-wrapper {
   width: 100%;
-  max-width: 480px; /* Adjusted max width to better fit the image proportion */
-  aspect-ratio: 4/3; /* Maintain a 4:3 aspect ratio for the image container */
-  border: none; /* Explicitly remove border */
-  border-radius: var(--image-inner-border-radius); /* Still apply rounded corners to the image's bounding box */
-  overflow: hidden; /* Ensures image is clipped to border-radius */
-  display: flex; /* To center the image inside */
+  max-width: 480px;
+  aspect-ratio: 4/3;
+  border: none;
+  border-radius: var(--image-inner-border-radius);
+  overflow: hidden;
+  display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px; /* Space between image and title */
+  margin-bottom: 20px;
 }
 
 .lp-card-image {
   display: block;
   width: 100%;
-  height: 100%; /* Fill the wrapper */
-  object-fit: cover; /* This will crop the image to fit the aspect-ratio without distortion */
-  border-radius: inherit; /* Inherit the wrapper's border-radius */
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 
-/* --- Value Proposition Section (Dark Background) --- */
 .lp-dark-value-section {
   background-color: var(--dark-bg);
-  padding: 80px 48px; /* Adjusted padding for less gap */
+  padding: 80px 48px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -307,8 +292,8 @@ body {
 
 .lp-value-blocks-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two columns */
-  gap: 30px; /* Space between blocks */
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
   max-width: 1200px;
   width: 100%;
 }
@@ -316,7 +301,7 @@ body {
 .lp-value-block {
   background-color: var(--white);
   border-radius: var(--card-border-radius);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); /* More pronounced shadow on dark background */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -324,16 +309,15 @@ body {
   text-align: center;
 }
 
-/* --- Image Styling (within value blocks - all framing removed) --- */
 .lp-value-image-wrapper {
   width: 100%;
-  max-width: 480px; /* Consistent image size with feature cards */
-  aspect-ratio: 4/3; /* Maintain 4:3 aspect ratio */
-  border: none; /* Explicitly remove border */
+  max-width: 480px;
+  aspect-ratio: 4/3;
+  border: none;
   border-radius: var(--image-inner-border-radius);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for image on white bg */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  margin-bottom: 30px; /* Space below image */
+  margin-bottom: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -343,27 +327,27 @@ body {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure image covers the area */
+  object-fit: cover;
   border-radius: inherit;
 }
 
 .lp-value-title {
   font-size: 24px;
   font-weight: 700;
-  color: var(--text-dark); /* Text color remains dark for text on white cards */
+  color: var(--text-dark);
   margin-bottom: 15px;
   line-height: 1.3;
 }
 
 .lp-value-description {
   font-size: 17px;
-  color: var(--text-medium); /* Text color remains medium dark for text on white cards */
+  color: var(--text-medium);
   margin-bottom: 30px;
   line-height: 1.6;
 }
 
 .lp-value-button {
-  padding: 16px 32px; /* Larger buttons */
+  padding: 16px 32px;
   font-size: 17px;
   font-weight: 600;
 }
@@ -386,21 +370,20 @@ body {
   background-color: #0056cb;
 }
 
-/* --- Take Charge of Your Healthspan Section --- */
 .lp-healthspan-section {
   background-color: var(--bg-light-gray);
-  padding: 80px 48px; /* Adjusted padding for less gap */
-  position: relative; /* For absolute positioning of images */
+  padding: 80px 48px;
+  position: relative;
   display: flex;
   justify-content: center;
-  align-items: center; /* Center content vertically */
+  align-items: center;
   text-align: center;
-  overflow: hidden; /* Crucial for cropping floating images */
+  overflow: hidden;
 }
 
 .lp-healthspan-content {
-  max-width: 800px; /* Limit width of main text content */
-  position: relative; /* Ensure text is above images */
+  max-width: 800px;
+  position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -408,7 +391,7 @@ body {
 }
 
 .lp-healthspan-title {
-  font-size: clamp(36px, 4.2vw, 68px); /* Similar to hero title */
+  font-size: clamp(36px, 4.2vw, 68px);
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 24px;
@@ -417,10 +400,10 @@ body {
 }
 
 .lp-healthspan-description {
-  font-size: clamp(16px, 1.4vw, 24px); /* Similar to hero subtitle */
+  font-size: clamp(16px, 1.4vw, 24px);
   color: var(--text-medium);
   margin-bottom: 48px;
-  max-width: 700px; /* Slightly narrower than title for readability */
+  max-width: 700px;
   line-height: 1.5;
 }
 
@@ -436,42 +419,40 @@ body {
   background-color: #0056cb;
 }
 
-/* Floating Images Positioning */
 .lp-healthspan-image-top-right,
 .lp-healthspan-image-bottom-left {
   position: absolute;
-  z-index: 1; /* Behind text content */
-  width: clamp(200px, 20vw, 350px); /* Responsive image width */
+  z-index: 1;
+  width: clamp(200px, 20vw, 350px);
   height: auto;
-  opacity: 0.8; /* Slight transparency to blend */
-  pointer-events: none; /* Do not interfere with clicks on elements below */
-  padding: 0 20px; /* Keep internal padding on the image container */
-  box-sizing: border-box; /* Include padding in the width calculation */
+  opacity: 0.8;
+  pointer-events: none;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .lp-healthspan-image-top-right {
-  top: 5%; /* Adjust as needed */
-  right: 0%; /* Aligns directly with the right edge */
+  top: 5%;
+  right: 0%;
 }
 
 .lp-healthspan-image-bottom-left {
-  bottom: 5%; /* Adjust as needed */
-  left: 0%; /* Aligns directly with the left edge */
+  bottom: 5%;
+  left: 0%;
 }
 
 .lp-healthspan-image-top-right img,
 .lp-healthspan-image-bottom-left img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ensure full image is visible within its bounds */
-    border-radius: 10px; /* Slight rounding for images */
+    object-fit: contain;
+    border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* --- Pricing Section --- */
 .lp-pricing-section {
   background-color: var(--white);
-  padding: 80px 48px; /* Adjusted padding for less gap */
+  padding: 80px 48px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -480,12 +461,12 @@ body {
 
 .lp-pricing-cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three columns */
-  gap: 30px; /* Space between cards */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
   max-width: 1200px;
   width: 100%;
   justify-content: center;
-  align-items: flex-start; /* Align cards at the top */
+  align-items: flex-start;
 }
 
 .lp-pricing-card {
@@ -493,15 +474,15 @@ body {
   border: 1px solid var(--pricing-card-border);
   border-radius: var(--card-border-radius);
   box-shadow: 0 5px 15px var(--card-shadow);
-  padding: 40px; /* Internal padding */
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  text-align: left; /* Default text alignment */
+  text-align: left;
 }
 
 .lp-price-header {
-  text-align: center; /* Center price and description */
-  margin-bottom: 30px; /* Space below price header */
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .lp-price {
@@ -509,7 +490,7 @@ body {
   font-weight: 700;
   color: var(--text-dark);
   line-height: 1;
-  margin-bottom: 8px; /* Space below price value */
+  margin-bottom: 8px;
 }
 
 .lp-price-description {
@@ -522,21 +503,21 @@ body {
   font-size: 24px;
   font-weight: 600;
   color: var(--text-dark);
-  margin-bottom: 10px; /* Space below plan name */
+  margin-bottom: 10px;
 }
 
 .lp-plan-tagline {
   font-size: 17px;
   color: var(--text-medium);
-  margin-bottom: 30px; /* Space below tagline */
+  margin-bottom: 30px;
   line-height: 1.5;
 }
 
 .lp-pricing-button {
-  width: 100%; /* Full width button */
+  width: 100%;
   padding: 16px 24px;
   font-size: 17px;
-  margin-bottom: 30px; /* Space below button */
+  margin-bottom: 30px;
 }
 
 .lp-primary-pricing-button {
@@ -555,13 +536,13 @@ body {
 }
 
 .lp-secondary-pricing-button:hover {
-  background-color: #f0f8ff; /* Very light blue on hover */
+  background-color: #f0f8ff;
 }
 
 .lp-includes-section {
-  margin-top: 30px; /* Space above includes section */
-  padding-top: 30px; /* Padding for the top border */
-  border-top: 1px solid var(--pricing-card-border); /* Separator line */
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid var(--pricing-card-border);
 }
 
 .lp-includes-header {
@@ -569,107 +550,106 @@ body {
   font-weight: 600;
   color: var(--text-dark);
   text-transform: uppercase;
-  margin-bottom: 20px; /* Space below header */
-  letter-spacing: 0.05em; /* Slight letter spacing */
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
 }
 
 .lp-includes-list {
-  list-style: none; /* Remove default list style */
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .lp-includes-list li {
   display: flex;
-  align-items: flex-start; /* Align icon and text at the top */
-  margin-bottom: 12px; /* Space between list items */
+  align-items: flex-start;
+  margin-bottom: 12px;
   font-size: 16px;
   color: var(--text-medium);
   line-height: 1.4;
 }
 
 .lp-includes-list li:last-child {
-  margin-bottom: 0; /* No margin for the last item */
+  margin-bottom: 0;
 }
 
 .lp-check-icon {
   display: inline-block;
-  width: 18px; /* Size of the checkmark icon */
+  width: 18px;
   height: 18px;
-  margin-right: 12px; /* Space between icon and text */
-  flex-shrink: 0; /* Prevent icon from shrinking */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23006aff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E"); /* Blue checkmark SVG */
+  margin-right: 12px;
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23006aff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
 }
 
-/* --- User Stories / Testimonials Section --- */
 .lp-user-stories-section {
-  background-color: var(--dark-bg); /* Dark background */
-  padding: 80px 48px; /* Adjusted padding for less gap */
+  background-color: var(--dark-bg);
+  padding: 80px 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: var(--dark-text-light); /* Light text on dark background */
+  color: var(--dark-text-light);
 }
 
 .lp-user-stories-header {
-  margin-bottom: 70px; /* Space before the cards */
+  margin-bottom: 70px;
 }
 
 .lp-user-stories-subtitle {
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
-  color: var(--dark-text-medium); /* Slightly lighter than main title text */
+  color: var(--dark-text-medium);
   margin-bottom: 10px;
-  letter-spacing: 0.08em; /* Spread letters a bit */
+  letter-spacing: 0.08em;
 }
 
 .lp-user-stories-title {
-  color: var(--dark-text-light); /* White/light text for title */
+  color: var(--dark-text-light);
   margin-bottom: 20px;
 }
 
 .lp-user-stories-description {
-  color: var(--dark-text-medium); /* Lighter text for description */
-  margin-bottom: 0; /* Already has margin from lp-section-header */
+  color: var(--dark-text-medium);
+  margin-bottom: 0;
 }
 
 .lp-testimonial-cards-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Four columns */
-  gap: 30px; /* Space between cards */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
   max-width: 1200px;
   width: 100%;
 }
 
 .lp-testimonial-card {
-  background-color: var(--testimonial-bg-dark); /* Darker background for cards */
-  border: 1px solid var(--testimonial-border); /* Subtle border */
+  background-color: var(--testimonial-bg-dark);
+  border: 1px solid var(--testimonial-border);
   border-radius: var(--card-border-radius);
-  padding: 30px; /* Internal padding */
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align content to the left */
-  text-align: left; /* Ensure text aligns left */
+  align-items: flex-start;
+  text-align: left;
 }
 
 .lp-testimonial-header {
   display: flex;
   align-items: center;
-  margin-bottom: 20px; /* Space below header block */
+  margin-bottom: 20px;
 }
 
 .lp-testimonial-avatar {
-  width: 56px; /* Size of avatar */
+  width: 56px;
   height: 56px;
-  border-radius: 50%; /* Circular avatar */
+  border-radius: 50%;
   object-fit: cover;
-  margin-right: 15px; /* Space between avatar and info */
-  flex-shrink: 0; /* Prevent avatar from shrinking */
+  margin-right: 15px;
+  flex-shrink: 0;
 }
 
 .lp-testimonial-info {
@@ -680,87 +660,84 @@ body {
 .lp-testimonial-name {
   font-size: 18px;
   font-weight: 600;
-  color: var(--dark-text-light); /* Light text for name */
+  color: var(--dark-text-light);
   margin: 0;
   line-height: 1.3;
 }
 
 .lp-testimonial-company {
   font-size: 15px;
-  color: var(--dark-text-medium); /* Medium light text for company */
+  color: var(--dark-text-medium);
   margin: 0;
   line-height: 1.3;
 }
 
 .lp-testimonial-quote {
   font-size: 17px;
-  color: var(--dark-text-light); /* Light text for quote */
-  margin-bottom: 20px; /* Space below quote */
-  flex-grow: 1; /* Allows quote to take available space */
+  color: var(--dark-text-light);
+  margin-bottom: 20px;
+  flex-grow: 1;
 }
 
 .lp-testimonial-tag {
   font-size: 14px;
   font-weight: 500;
-  color: var(--primary-blue); /* Blue for the tag */
-  background-color: rgba(0, 106, 255, 0.1); /* Light blue background for tag */
+  color: var(--primary-blue);
+  background-color: rgba(0, 106, 255, 0.1);
   padding: 8px 12px;
   border-radius: 4px;
-  align-self: flex-start; /* Align tag to the left */
+  align-self: flex-start;
 }
 
-
-/* --- FAQ Section --- */
 .lp-faq-section {
-  background-color: var(--bg-light-gray); /* Light background */
-  padding: 80px 48px; /* Adjusted padding for less gap */
+  background-color: var(--bg-light-gray);
+  padding: 80px 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  color: var(--text-dark); /* Dark text on light background */
+  color: var(--text-dark);
 }
 
 .lp-faq-header {
-  margin-bottom: 70px; /* Space before the FAQ items */
+  margin-bottom: 70px;
 }
 
 .lp-faq-subtitle {
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
-  color: var(--text-medium); /* Darker than user stories subtitle */
+  color: var(--text-medium);
   margin-bottom: 10px;
   letter-spacing: 0.08em;
 }
 
 .lp-faq-title {
-  color: var(--text-dark); /* Dark text for title */
+  color: var(--text-dark);
   margin-bottom: 20px;
 }
 
 .lp-faq-description {
-  color: var(--text-medium); /* Medium dark text for description */
+  color: var(--text-medium);
   margin-bottom: 0;
 }
 
 .lp-faq-items-container {
-  max-width: 800px; /* Max width for the FAQ content */
+  max-width: 800px;
   width: 100%;
-  margin-bottom: 50px; /* Space before contact link */
+  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
-  /* gap: 5px; Space between FAQ items */
 }
 
 .lp-faq-item {
-  text-align: left; /* Align text to the left within each item */
-  padding-bottom: 25px; /* Padding for border-bottom */
-  border-bottom: 1px solid var(--border-light); /* Separator line */
+  text-align: left;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .lp-faq-item:last-child {
-  border-bottom: none; /* No border for the last item */
+  border-bottom: none;
   padding-bottom: 0;
 }
 
@@ -768,7 +745,7 @@ body {
   font-size: 22px;
   font-weight: 600;
   color: var(--text-dark);
-  margin-bottom: 10px; /* Space below question */
+  margin-bottom: 10px;
   line-height: 1.4;
 }
 
@@ -783,7 +760,7 @@ body {
   font-weight: 600;
   color: var(--primary-blue);
   text-decoration: none;
-  display: inline-flex; /* For arrow alignment */
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   transition: color 0.3s ease;
@@ -802,7 +779,6 @@ body {
   transform: translateX(5px);
 }
 
-/* --- Webflow Badge (Bottom Right) --- */
 .lp-webflow-badge {
   position: fixed;
   bottom: 24px;
@@ -815,28 +791,23 @@ body {
   color: var(--text-light);
   display: flex;
   align-items: center;
-  gap: 6px; /* Space between icon and text */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* More pronounced shadow */
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   z-index: 1001;
   font-weight: 500;
 }
 
-/* For the Webflow icon - you'd replace this with an actual SVG/image */
 .lp-webflow-icon {
   display: inline-block;
-  width: 14px; /* Icon size */
+  width: 14px;
   height: 14px;
-  background-color: var(--text-light); /* Placeholder color */
+  background-color: var(--text-light);
   -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>') no-repeat center center;
   mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>') no-repeat center center;
   -webkit-mask-size: contain;
   mask-size: contain;
 }
 
-
-/* --- Media Queries for Responsiveness --- */
-
-/* Tablets and larger phones (landscape) */
 @media (max-width: 1024px) {
   .lp-header {
     padding: 16px 30px;
@@ -855,12 +826,10 @@ body {
     font-size: 17px;
   }
   .lp-showcase-section {
-    padding: 30px 20px 60px; /* Adjusted further for less gap */
+    padding: 30px 20px 60px;
   }
-
-  /* Longevity mentor section adjustments */
   .lp-longevity-mentor-section {
-    padding: 70px 30px; /* Adjusted */
+    padding: 70px 30px;
   }
   .lp-section-header {
     margin-bottom: 50px;
@@ -872,12 +841,10 @@ body {
     padding: 30px;
   }
   .lp-card-image-wrapper {
-    max-width: 400px; /* Adjust max-width for smaller screens */
+    max-width: 400px;
   }
-
-  /* Value section adjustments */
   .lp-dark-value-section {
-    padding: 70px 30px; /* Adjusted */
+    padding: 70px 30px;
   }
   .lp-value-blocks-grid {
     gap: 20px;
@@ -895,10 +862,8 @@ body {
     padding: 14px 28px;
     font-size: 16px;
   }
-
-  /* Healthspan section adjustments */
   .lp-healthspan-section {
-    padding: 70px 30px; /* Adjusted */
+    padding: 70px 30px;
   }
   .lp-healthspan-title {
     font-size: clamp(32px, 5vw, 60px);
@@ -912,17 +877,15 @@ body {
   }
   .lp-healthspan-image-top-right,
   .lp-healthspan-image-bottom-left {
-    width: clamp(150px, 15vw, 250px); /* Scale down images */
+    width: clamp(150px, 15vw, 250px);
   }
-
-  /* Pricing section adjustments */
   .lp-pricing-section {
-    padding: 70px 30px; /* Adjusted */
+    padding: 70px 30px;
   }
   .lp-pricing-cards-grid {
     gap: 20px;
-    grid-template-columns: 1fr; /* Stack cards on smaller tablets */
-    max-width: 400px; /* Limit width when stacked */
+    grid-template-columns: 1fr;
+    max-width: 400px;
   }
   .lp-pricing-card {
     padding: 30px;
@@ -948,16 +911,14 @@ body {
     height: 16px;
     margin-right: 10px;
   }
-
-  /* User Stories section adjustments */
   .lp-user-stories-section {
-    padding: 70px 30px; /* Adjusted */
+    padding: 70px 30px;
   }
   .lp-user-stories-header {
     margin-bottom: 50px;
   }
   .lp-testimonial-cards-grid {
-    grid-template-columns: 1fr 1fr; /* Two columns */
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
   .lp-testimonial-card {
@@ -982,10 +943,8 @@ body {
     font-size: 13px;
     padding: 6px 10px;
   }
-
-  /* FAQ section adjustments */
   .lp-faq-section {
-    padding: 70px 30px; /* Adjusted */
+    padding: 70px 30px;
   }
   .lp-faq-header {
     margin-bottom: 50px;
@@ -1007,45 +966,37 @@ body {
   }
 }
 
-/* Smaller tablets and large mobiles */
 @media (max-width: 768px) {
   .lp-header {
     flex-direction: column;
     padding: 15px 20px;
     gap: 15px;
   }
-
   .lp-logo-nav {
     flex-direction: column;
     gap: 15px;
     width: 100%;
   }
-
   .lp-nav-links {
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
   }
-
   .lp-header-join-button {
     width: 100%;
     max-width: 200px;
   }
-
   .lp-hero-section {
     padding: 60px 15px;
   }
-
   .lp-hero-title {
     font-size: clamp(28px, 7vw, 48px);
     margin-bottom: 15px;
   }
-
   .lp-hero-subtitle {
     font-size: clamp(14px, 3.5vw, 18px);
     margin-bottom: 30px;
   }
-
   .lp-cta-buttons {
     flex-direction: column;
     gap: 12px;
@@ -1058,12 +1009,10 @@ body {
     font-size: 16px;
   }
   .lp-showcase-section {
-    padding: 30px 15px 50px; /* Adjusted */
+    padding: 30px 15px 50px;
   }
-
-  /* Longevity mentor section adjustments */
   .lp-longevity-mentor-section {
-    padding: 60px 20px; /* Adjusted */
+    padding: 60px 20px;
   }
   .lp-section-header {
     margin-bottom: 40px;
@@ -1088,13 +1037,8 @@ body {
     font-size: 18px;
     margin-bottom: 20px;
   }
-  .lp-card-image-wrapper {
-    /* No specific changes for image wrapper padding in small mobile */
-  }
-
-  /* Value section adjustments */
   .lp-dark-value-section {
-    padding: 60px 20px; /* Adjusted */
+    padding: 60px 20px;
   }
   .lp-value-blocks-grid {
     grid-template-columns: 1fr;
@@ -1106,12 +1050,9 @@ body {
   .lp-value-image-wrapper {
     max-width: 100%;
   }
-
-  /* Healthspan section adjustments */
   .lp-healthspan-section {
-    padding: 60px 20px; /* Adjusted */
+    padding: 60px 20px;
   }
-  /* Floating images remain hidden on small screens to save space */
   .lp-healthspan-image-top-right,
   .lp-healthspan-image-bottom-left {
     display: none;
@@ -1126,13 +1067,11 @@ body {
     padding: 14px 28px;
     font-size: 16px;
   }
-
-  /* Pricing section adjustments */
   .lp-pricing-section {
-    padding: 60px 20px; /* Adjusted */
+    padding: 60px 20px;
   }
   .lp-pricing-cards-grid {
-    max-width: 350px; /* Further limit width on smaller tablets/mobiles */
+    max-width: 350px;
   }
   .lp-pricing-card {
     padding: 25px;
@@ -1158,17 +1097,15 @@ body {
     height: 16px;
     margin-right: 10px;
   }
-
-  /* User Stories section adjustments */
   .lp-user-stories-section {
-    padding: 60px 20px; /* Adjusted */
+    padding: 60px 20px;
   }
   .lp-user-stories-header {
     margin-bottom: 40px;
   }
   .lp-testimonial-cards-grid {
-    grid-template-columns: 1fr; /* Single column on mobiles */
-    max-width: 400px; /* Limit width when stacked */
+    grid-template-columns: 1fr;
+    max-width: 400px;
   }
   .lp-testimonial-card {
     padding: 20px;
@@ -1176,10 +1113,8 @@ body {
   .lp-testimonial-quote {
     font-size: 15px;
   }
-
-  /* FAQ section adjustments */
   .lp-faq-section {
-    padding: 60px 20px; /* Adjusted */
+    padding: 60px 20px;
   }
   .lp-faq-header {
     margin-bottom: 40px;
@@ -1195,45 +1130,36 @@ body {
   }
 }
 
-/* Small mobile devices */
 @media (max-width: 480px) {
   .lp-header {
     padding: 10px 15px;
   }
-
   .lp-nav-links {
     gap: 12px;
     font-size: 14px;
   }
-
   .lp-hero-section {
     padding: 40px 10px;
   }
-
   .lp-hero-title {
     font-size: 8vw;
   }
-
   .lp-hero-subtitle {
     font-size: 4vw;
   }
-
   .lp-cta-buttons {
     max-width: 280px;
   }
-
   .lp-primary-cta, .lp-secondary-cta {
     width: 100%;
     padding: 12px 20px;
     font-size: 15px;
   }
   .lp-showcase-section {
-    padding: 20px 10px 40px; /* Adjusted */
+    padding: 20px 10px 40px;
   }
-
-  /* Longevity mentor section adjustments */
   .lp-longevity-mentor-section {
-    padding: 40px 15px; /* Adjusted */
+    padding: 40px 15px;
   }
   .lp-section-header {
     margin-bottom: 30px;
@@ -1245,13 +1171,8 @@ body {
     font-size: 17px;
     margin-bottom: 15px;
   }
-  .lp-card-image-wrapper {
-    /* No specific changes for image wrapper padding in small mobile */
-  }
-
-  /* Value section adjustments */
   .lp-dark-value-section {
-    padding: 40px 15px; /* Adjusted */
+    padding: 40px 15px;
   }
   .lp-value-block {
     padding: 20px;
@@ -1266,12 +1187,9 @@ body {
     padding: 12px 24px;
     font-size: 15px;
   }
-
-  /* Healthspan section adjustments */
   .lp-healthspan-section {
-    padding: 40px 15px; /* Adjusted */
+    padding: 40px 15px;
   }
-  /* Floating images remain hidden */
   .lp-healthspan-title {
     font-size: 8vw;
   }
@@ -1282,10 +1200,8 @@ body {
     padding: 12px 24px;
     font-size: 15px;
   }
-
-  /* Pricing section adjustments */
   .lp-pricing-section {
-    padding: 40px 15px; /* Adjusted */
+    padding: 40px 15px;
   }
   .lp-pricing-cards-grid {
     gap: 20px;
@@ -1314,10 +1230,8 @@ body {
     height: 12px;
     margin-right: 6px;
   }
-
-  /* User Stories section adjustments */
   .lp-user-stories-section {
-    padding: 40px 15px; /* Adjusted */
+    padding: 40px 15px;
   }
   .lp-user-stories-header {
     margin-bottom: 30px;
@@ -1344,10 +1258,8 @@ body {
     font-size: 12px;
     padding: 5px 8px;
   }
-
-  /* FAQ section adjustments */
   .lp-faq-section {
-    padding: 40px 15px; /* Adjusted */
+    padding: 40px 15px;
   }
   .lp-faq-header {
     margin-bottom: 30px;
@@ -1367,11 +1279,394 @@ body {
   .lp-faq-contact-link {
     font-size: 15px;
   }
-
   .lp-webflow-badge {
     bottom: 15px;
     right: 15px;
     padding: 6px 10px;
     font-size: 11px;
   }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    background-color: #f0f2f5;
+}
+
+.lp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 100;
+}
+
+.lp-logo-nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.lp-logo {
+    height: 30px;
+    display: block;
+}
+
+.lp-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.lp-nav-item {
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.lp-nav-item:hover {
+    color: #007bff;
+}
+
+.platform-dropdown-panel {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    margin-top: 15px;
+    width: 950px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 99;
+}
+
+.lp-header {
+    z-index: 100;
+}
+
+.lp-nav-item.platform-dropdown .platform-dropdown-panel {
+    opacity: 1;
+    visibility: visible;
+}
+
+.platform-columns {
+    display: flex;
+    flex-grow: 1;
+    gap: 30px;
+}
+
+.platform-column {
+    flex: 1;
+    min-width: 160px;
+}
+
+.platform-column h4 {
+    font-size: 13px;
+    color: #777;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.platform-column a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+    text-decoration: none;
+    padding: 8px 0;
+    font-size: 15px;
+    transition: color 0.2s ease-in-out;
+}
+
+.platform-column a:hover {
+    color: #007bff;
+}
+
+.platform-cta-box {
+    background-color: #2b2b2b;
+    color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    width: 300px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.platform-cta-box h3 {
+    font-size: 24px;
+    line-height: 1.3;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.platform-cta-box p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+.platform-cta-box .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.platform-cta-box .cta-link:hover {
+    transform: translateX(5px);
+    color: #ffffff;
+}
+
+.support-dropdown-panel {
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    min-width: 180px;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+
+.lp-nav-item.support-dropdown .support-dropdown-panel {
+    opacity: 1;
+    visibility: visible;
+}
+
+.support-dropdown-panel a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 15px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.support-dropdown-panel a:hover {
+    background-color: #f5f5f5;
+}
+
+.lp-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.lp-button:hover {
+    background-color: #0056b3;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.platform-dropdown::after,
+.support-dropdown::after {
+    content: '▾';
+    margin-left: 5px;
+    font-size: 12px;
+    line-height: 1;
+    transition: transform 0.2s ease-in-out;
+}
+
+.platform-dropdown.active::after,
+.support-dropdown.active::after {
+    transform: rotate(180deg);
+}
+/* Add these new styles or adjust existing ones within your LandingPage.css */
+
+/* General Pricing Section Layout */
+.lp-pricing-section {
+    padding: 60px 20px; /* Adjust padding as needed */
+    background-color: #f9f9f9; /* Light background for the section */
+    text-align: center;
+}
+
+.lp-pricing-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 30px; /* Space between cards */
+    max-width: 1000px; /* Max width for the grid */
+    margin: 0 auto; /* Center the grid */
+}
+
+/* Individual Pricing Card */
+.lp-pricing-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Softer shadow */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lp-pricing-card:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Price Header */
+.lp-price-header {
+    margin-bottom: 20px;
+}
+
+.lp-price {
+    font-size: 3.5em; /* Larger price font */
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+    line-height: 1; /* Tighter line height */
+}
+
+.lp-price-description {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 0;
+}
+
+/* Plan Name and Tagline */
+.lp-plan-name {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.lp-plan-tagline {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 25px;
+    min-height: 40px; /* Ensure consistent height for taglines */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Pricing Buttons */
+.lp-pricing-button {
+    width: 100%; /* Make button full width of card padding */
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 8px; /* More rounded buttons */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 30px; /* Space below button */
+}
+
+.lp-primary-pricing-button {
+    background-color: #007bff; /* Primary blue */
+    color: #fff;
+    border: 1px solid #007bff;
+}
+
+.lp-primary-pricing-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3;
+}
+
+.lp-secondary-pricing-button {
+    background-color: #fff; /* White background */
+    color: #007bff; /* Blue text */
+    border: 1px solid #007bff; /* Blue border */
+}
+
+.lp-secondary-pricing-button:hover {
+    background-color: #f0f0f0; /* Light grey on hover */
+    color: #0056b3;
+    border-color: #0056b3;
+}
+
+
+/* Includes Section */
+.lp-includes-section {
+    width: 100%;
+    border-top: 1px solid #eee; /* Separator line */
+    padding-top: 25px;
+    text-align: left; /* Align includes text to left */
+}
+
+.lp-includes-header {
+    font-size: 0.85em;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.lp-includes-list {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.lp-includes-list li {
+    display: flex; /* Use flex to align checkmark and text */
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #444;
+}
+
+/* --- THE CHANGE FOR THE BLACK TICK --- */
+.lp-check-icon {
+    font-size: 1.2em; /* Slightly larger checkmark */
+    font-weight: bold; /* Make it bold */
+    color: #000; /* Make it black */
+    margin-right: 10px; /* Space between checkmark and text */
+    /* If you want a specific Unicode black tick (like a filled one), you'd change the character in HTML/React.
+       For example, using '\u2713' (✓) or '\u2714' (✔ - heavy checkmark)
+       If you used '&#10003;' (✓) in HTML, this CSS would make it black and bold.
+    */
+}
+
+/* Optional: Last list item no margin-bottom */
+.lp-includes-list li:last-child {
+    margin-bottom: 0;
 }

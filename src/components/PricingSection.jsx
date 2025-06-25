@@ -24,9 +24,9 @@ const PricingSection = () => {
           <div className="lp-includes-section">
             <h6 className="lp-includes-header">INCLUDES</h6>
             <ul className="lp-includes-list">
-              <li><span className="lp-check-icon">✓</span>Personal health dashboard</li>
-              <li><span className="lp-check-icon">✓</span>Wearable sync</li>
-              <li><span className="lp-check-icon">✓</span>AI health tips</li>
+              <li><span className="lp-check-icon"></span>Personal health dashboard</li>
+              <li><span className="lp-check-icon"></span>Wearable sync</li>
+              <li><span className="lp-check-icon"></span>AI health tips</li>
             </ul>
           </div>
         </div>
@@ -47,10 +47,10 @@ const PricingSection = () => {
           <div className="lp-includes-section">
             <h6 className="lp-includes-header">INCLUDES</h6>
             <ul className="lp-includes-list">
-              <li><span className="lp-check-icon">✓</span>All Starter features</li>
-              <li><span className="lp-check-icon">✓</span>Lab data sync</li>
-              <li><span className="lp-check-icon">✓</span>Custom milestones</li>
-              <li><span className="lp-check-icon">✓</span>Priority support</li>
+              <li><span className="lp-check-icon"></span>All Starter features</li>
+              <li><span className="lp-check-icon"></span>Lab data sync</li>
+              <li><span className="lp-check-icon"></span>Custom milestones</li>
+              <li><span className="lp-check-icon"></span>Priority support</li>
             </ul>
           </div>
         </div>
@@ -71,11 +71,11 @@ const PricingSection = () => {
           <div className="lp-includes-section">
             <h6 className="lp-includes-header">INCLUDES</h6>
             <ul className="lp-includes-list">
-              <li><span className="lp-check-icon">✓</span>All Core features</li>
-              <li><span className="lp-check-icon">✓</span>Team collaboration</li>
-              <li><span className="lp-check-icon">✓</span>AI risk prediction</li>
-              <li><span className="lp-check-icon">✓</span>Advanced reporting</li>
-              <li><span className="lp-check-icon">✓</span>Account manager</li>
+              <li><span className="lp-check-icon"></span>All Core features</li>
+              <li><span className="lp-check-icon"></span>Team collaboration</li>
+              <li><span className="lp-check-icon"></span>AI risk prediction</li>
+              <li><span className="lp-check-icon"></span>Advanced reporting</li>
+              <li><span className="lp-check-icon"></span>Account manager</li>
             </ul>
           </div>
         </div>
