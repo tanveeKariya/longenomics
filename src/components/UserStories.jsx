@@ -1,6 +1,6 @@
 import React from 'react';
-import './LandingPage.css'; // Make sure this CSS file exists
-import img from '../assets/image.png'; // Make sure this image is correctly linked
+import './LandingPage.css'; 
+import img from '../assets/image.png'; 
 
 const UserStories = () => {
   const testimonials = [

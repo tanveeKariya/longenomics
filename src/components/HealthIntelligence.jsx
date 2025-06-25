@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import './HealthIntelligence.css'; // Import the CSS file
-import TabImage from '../assets/tab.png'; // Use this image for all cards
-
-// Placeholder for avatar images (use a single placeholder for simplicity as per previous component)
-import userAvatar from '../assets/image.png'; // Assuming a generic user avatar image
+import './HealthIntelligence.css';
+import TabImage from '../assets/tab.png';
+import userAvatar from '../assets/image.png';
 
 const HealthIntelligence = () => {
-  const [activeTab, setActiveTab] = useState('All'); // State to manage active tab: 'All', 'Longevity', 'AI', 'Wellness'
+  const [activeTab, setActiveTab] = useState('All');
 
-  // Data for each tab's content
   const tabContent = {
     All: [
       {
@@ -30,7 +27,7 @@ const HealthIntelligence = () => {
         date: 'Mar 28, 2024',
       },
       {
-        type: 'Collaboration', // Example type, based on image
+        type: 'Collaboration',
         title: 'Empowering precision health collaboration',
         description: 'Seamlessly connect and share insights with your care team and researchers.',
         image: TabImage,
@@ -39,7 +36,7 @@ const HealthIntelligence = () => {
         date: 'Feb 01, 2023',
       },
       {
-        type: 'Future Health', // Example type
+        type: 'Future Health',
         title: 'Shaping your future with predictive insights',
         description: 'Proactive steps today for a healthier, longer tomorrow.',
         image: TabImage,
@@ -53,7 +50,7 @@ const HealthIntelligence = () => {
         type: 'Wearables',
         title: 'Gamified Digital Twins: real-time health tracking for longevity',
         description: 'Leverage wearable data for proactive, personalized care to extend your healthy lifespan.',
-        image: TabImage, // Reusing existing image for demonstration
+        image: TabImage,
         authorAvatar: userAvatar,
         authorName: 'Drew Ellis',
         date: 'Apr 12, 2023',
@@ -62,7 +59,7 @@ const HealthIntelligence = () => {
         type: 'Future Health',
         title: 'Long-term health strategies with AI',
         description: 'AI-driven insights for sustainable wellness and longevity planning.',
-        image: TabImage, // Reusing existing image for demonstration
+        image: TabImage,
         authorAvatar: userAvatar,
         authorName: 'Sophia Chen',
         date: 'Jan 15, 2024',
@@ -82,7 +79,7 @@ const HealthIntelligence = () => {
         type: 'AI Insights',
         title: 'Predictive analytics for early detection',
         description: 'Harness the power of AI to anticipate health risks before they emerge.',
-        image: TabImage, // Reusing existing image for demonstration
+        image: TabImage,
         authorAvatar: userAvatar,
         authorName: 'Dr. Alex Lee',
         date: 'Mar 05, 2024',
@@ -93,7 +90,7 @@ const HealthIntelligence = () => {
         type: 'Wellness Tracking',
         title: 'Holistic wellness through unified data',
         description: 'Integrate all aspects of your lifestyle for comprehensive wellness tracking.',
-        image: TabImage, // Reusing existing image for demonstration
+        image: TabImage,
         authorAvatar: userAvatar,
         authorName: 'Sarah Kim',
         date: 'May 20, 2023',
@@ -102,7 +99,7 @@ const HealthIntelligence = () => {
         type: 'Mind-Body Connection',
         title: 'Optimizing mental and physical well-being',
         description: 'Guidance and tools to achieve balanced health and vitality.',
-        image: TabImage, // Reusing existing image for demonstration
+        image: TabImage,
         authorAvatar: userAvatar,
         authorName: 'Michael Brown',
         date: 'Apr 01, 2024',
@@ -110,7 +107,6 @@ const HealthIntelligence = () => {
     ],
   };
 
-  // Get content based on active tab, or default to 'All'
   const currentContent = tabContent[activeTab] || tabContent['All'];
 
   return (

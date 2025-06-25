@@ -1,9 +1,7 @@
 import React from 'react';
-import './HealthspanSection.css'; // Import the dedicated CSS
-
-// Import the specific images for this section
-import HealthspanTabletImage from '../assets/tab.png'; // Assuming image_9401e2.jpg is renamed
-import HealthspanGraphImage from '../assets/tab.png'; // Assuming this is the graph image
+import './HealthspanSection.css';
+import HealthspanTabletImage from '../assets/tab.png';
+import HealthspanGraphImage from '../assets/tab.png';
 
 function HealthspanSection() {
   return (
@@ -17,8 +15,6 @@ function HealthspanSection() {
         </p>
         <button className="lp-button lp-healthspan-button">Join now</button>
       </div>
-
-      {/* Floating Images */}
       <div className="lp-healthspan-image-top-right">
         <img src={HealthspanTabletImage} alt="Health data on tablet" />
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './LandingPage.css'; // Make sure this CSS file exists
+import './LandingPage.css';
 
 const FAQSection = () => {
   return (

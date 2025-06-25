@@ -1,11 +1,7 @@
 import React from 'react';
-import './Footer.css'; // Import your CSS file
-
-// Import specific icons from react-icons/fa
+import './Footer.css';
 import { FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
-
-// Assuming you have an SVG or image for the logo
-import LongenomicsLogo from '../assets/longenomics-logo.png'; // Make sure this path is correct
+import LongenomicsLogo from '../assets/longenomics-logo.png';
 
 const Footer = () => {
   return (
@@ -19,7 +15,6 @@ const Footer = () => {
         </div>
 
         <div className="footer-links-section">
-          {/* Platform Column */}
           <div className="footer-column">
             <h3>Platform</h3>
             <ul>
@@ -30,8 +25,6 @@ const Footer = () => {
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
-
-          {/* Resources Column */}
           <div className="footer-column">
             <h3>Resources</h3>
             <ul>
@@ -42,8 +35,6 @@ const Footer = () => {
               <li><a href="#partners">Partners</a></li>
             </ul>
           </div>
-
-          {/* Legal Column */}
           <div className="footer-column">
             <h3>Legal</h3>
             <ul>
@@ -54,8 +45,6 @@ const Footer = () => {
               <li><a href="#compliance">Compliance</a></li>
             </ul>
           </div>
-
-          {/* Company Column */}
           <div className="footer-column">
             <h3>Company</h3>
             <ul>
@@ -71,7 +60,6 @@ const Footer = () => {
 
       <div className="footer-bottom-bar">
         <div className="social-icons">
-          {/* Using react-icons components */}
           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
           <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter /></a>
@@ -91,11 +79,6 @@ const Footer = () => {
           All rights reserved © 202 Longenomics
         </div>
       </div>
-
-      {/* Removed the webflow badge as it's not present in the original screenshot you provided */}
-      {/* <a href="https://webflow.com" target="_blank" rel="noopener noreferrer" className="made-in-webflow">
-        <img src="https://assets-global.website-files.com/5c6b9075e7a9094767e3f848/5c6b9075e7a9094767e3f8a0_webflow-badge.png" alt="Made in Webflow" />
-      </a> */}
     </footer>
   );
 };

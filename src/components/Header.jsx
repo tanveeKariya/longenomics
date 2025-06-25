@@ -1,6 +1,6 @@
 import React from 'react';
-import './LandingPage.css'; // Make sure this CSS file exists
-import LongenomicsLogo from '../assets/longenomics-logo.png'; // Adjust path if logo is in a different assets folder
+import './LandingPage.css';
+import LongenomicsLogo from '../assets/longenomics-logo.png';
 
 const Header = () => {
   return (

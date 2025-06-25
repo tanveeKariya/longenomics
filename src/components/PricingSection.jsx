@@ -1,11 +1,13 @@
 import React from 'react';
-import './LandingPage.css'; // Make sure this CSS file exists
+import './LandingPage.css';
+import { useNavigate } from 'react-router-dom';
 
 const PricingSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="lp-pricing-section">
       <div className="lp-pricing-cards-grid">
-        {/* Starter Card */}
         <div className="lp-pricing-card">
           <div className="lp-price-header">
             <h4 className="lp-price">$0</h4>
@@ -13,7 +15,12 @@ const PricingSection = () => {
           </div>
           <h5 className="lp-plan-name">Starter</h5>
           <p className="lp-plan-tagline">Track basics with AI insights.</p>
-          <button className="lp-button lp-pricing-button lp-primary-pricing-button">Get started</button>
+          <button
+            className="lp-button lp-pricing-button lp-primary-pricing-button"
+            onClick={() => navigate('/starter')}
+          >
+            Get started
+          </button>
           <div className="lp-includes-section">
             <h6 className="lp-includes-header">INCLUDES</h6>
             <ul className="lp-includes-list">
@@ -24,7 +31,6 @@ const PricingSection = () => {
           </div>
         </div>
 
-        {/* Core Card */}
         <div className="lp-pricing-card">
           <div className="lp-price-header">
             <h4 className="lp-price">$9</h4>
@@ -32,7 +38,12 @@ const PricingSection = () => {
           </div>
           <h5 className="lp-plan-name">Core</h5>
           <p className="lp-plan-tagline">Deeper analytics and custom goals.</p>
-          <button className="lp-button lp-pricing-button lp-primary-pricing-button">Upgrade</button>
+          <button
+            className="lp-button lp-pricing-button lp-primary-pricing-button"
+            onClick={() => navigate('/core')}
+          >
+            Upgrade
+          </button>
           <div className="lp-includes-section">
             <h6 className="lp-includes-header">INCLUDES</h6>
             <ul className="lp-includes-list">
@@ -44,7 +55,6 @@ const PricingSection = () => {
           </div>
         </div>
 
-        {/* Pro Card */}
         <div className="lp-pricing-card">
           <div className="lp-price-header">
             <h4 className="lp-price">$19</h4>
@@ -52,7 +62,12 @@ const PricingSection = () => {
           </div>
           <h5 className="lp-plan-name">Pro</h5>
           <p className="lp-plan-tagline">Full platform for teams & orgs.</p>
-          <button className="lp-button lp-pricing-button lp-secondary-pricing-button">Contact</button>
+          <button
+            className="lp-button lp-pricing-button lp-secondary-pricing-button"
+            onClick={() => navigate('/pro')}
+          >
+            Contact
+          </button>
           <div className="lp-includes-section">
             <h6 className="lp-includes-header">INCLUDES</h6>
             <ul className="lp-includes-list">

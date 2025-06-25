@@ -1,6 +1,6 @@
 import React from 'react';
-import './LandingPage.css';// Make sure this CSS file exists
-import TabImage from '../assets/tab.png'; // Adjust path
+import './LandingPage.css';
+import TabImage from '../assets/tab.png';
 
 const TabletShowcase = () => {
   return (
