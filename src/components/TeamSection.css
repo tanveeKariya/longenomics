@@ -1,0 +1,323 @@
+/* TeamSection.css */
+
+/* --- General Resets & Body Styling --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif; /* A common, clean sans-serif font */
+}
+
+/* --- Main Container --- */
+.team-section-container {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1A202C, #2D3748); /* Dark gradient background */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 0px; /* Responsive padding */
+  overflow: hidden; /* Hide overflowing blobs */
+}
+
+/* --- Background Blobs --- */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+  filter: blur(80px); /* Increased blur for softer look */
+  opacity: 0.3;
+  animation: blob 7s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  z-index: 0; /* Ensure blobs are behind content */
+}
+
+.blob-1 {
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 320px;
+  background-color: #8B5CF6; /* Purple */
+}
+
+.blob-2 {
+  top: 0;
+  right: 0;
+  width: 384px;
+  height: 384px;
+  background-color: #EC4899; /* Pink */
+  animation-delay: 2s;
+}
+
+.blob-3 {
+  bottom: 0;
+  left: 0;
+  width: 288px;
+  height: 288px;
+  background-color: #FBBF24; /* Yellow */
+  animation-delay: 4s;
+}
+
+.blob-4 {
+  bottom: 0;
+  right: 0;
+  width: 256px;
+  height: 256px;
+  background-color: #10B981; /* Green */
+  animation-delay: 6s;
+}
+
+@keyframes blob {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+/* --- Header Section --- */
+.team-section-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-top: 0px;
+  /* margin-bottom: 48px; */
+}
+
+.team-section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  
+}
+
+.team-section-description {
+  font-size: 1rem;
+  color: #D1D5DB;
+  max-width: 640px;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+}
+
+/* --- Team Members Grid Container --- */
+.team-members-grid-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Team Member Card --- */
+.team-member-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(107, 114, 128, 0.5);
+  transform: scale(1);
+  transition: transform 0.3s ease;
+  aspect-ratio: 1 / 1; /* Ensures square aspect ratio */
+  width: 80%; /* Take full width of grid item */
+  max-width: 160px; /* Default max-width for small cards */
+}
+
+.team-member-card:hover {
+  transform: scale(1.02);
+}
+
+.team-member-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.team-member-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5), transparent);
+}
+
+.team-member-info {
+  position: relative;
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+  z-index: 1;
+}
+
+.team-member-name {
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap; /* Prevent name from wrapping on small cards */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis if name is too long */
+}
+
+.team-member-title {
+  color: #D1D5DB;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Large Card Specific Styles --- */
+.large-card {
+  max-width: 256px;
+}
+
+.large-card .team-member-name {
+  font-size: 1.25rem;
+}
+
+.large-card .team-member-title {
+  font-size: 0.875rem;
+}
+
+/* --- Small Card Specific Styles --- */
+.small-card .team-member-name {
+  font-size: 1rem;
+}
+
+.small-card .team-member-title {
+  font-size: 0.75rem;
+}
+
+/* --- Layout Rows --- */
+.team-members-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+  width: 90%; /* Ensure rows take full width for centering */
+}
+
+.team-members-row > .team-member-card {
+  margin: 0 12px;
+}
+
+/* Specific spacing for the large members row */
+.large-members-row > .team-member-card {
+  margin: 0 20px;
+}
+
+/* --- Flexible Grid for Remaining Members --- */
+.team-members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* 2 columns on small, responsive */
+  gap: 16px;
+  width: 80%;
+  justify-content: center; /* Center items in the grid if there are fewer than full columns */
+}
+
+/* --- Footer Section --- */
+.team-section-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-top: 64px;
+  max-width: 512px;
+  color: #9CA3AF;
+  font-size: 0.875rem;
+  padding: 0 16px;
+}
+
+.footer-intro {
+  margin-bottom: 8px;
+}
+
+.footer-names {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+
+/* --- Responsive Adjustments using Media Queries --- */
+
+/* Medium Screens (md) */
+@media (min-width: 768px) {
+  .team-section-title {
+    font-size: 3rem;
+  }
+
+  .team-section-description {
+    font-size: 1.25rem;
+  }
+
+  .large-card {
+    width: 320px;
+    height: 320px;
+    max-width: none;
+  }
+
+  .small-card {
+    width: 192px;
+    height: 192px;
+    max-width: none;
+  }
+
+  .team-member-name {
+    font-size: 1.125rem;
+  }
+
+  .team-member-title {
+    font-size: 0.875rem;
+  }
+
+  .large-members-row > .team-member-card {
+    margin: 0 40px;
+  }
+
+  .team-members-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+  }
+
+  .team-members-row {
+    margin-bottom: 20px;
+  }
+
+  .team-section-footer {
+    font-size: 1rem;
+  }
+}
+
+/* Large Screens (lg) */
+@media (min-width: 1024px) {
+  .large-card {
+    width: 320px;
+    height: 320px;
+  }
+
+  .small-card {
+    width: 192px;
+    height: 192px;
+  }
+
+  .team-members-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+  }
+}
+
+/* X-Large Screens (xl) */
+@media (min-width: 1280px) {
+  .team-members-grid-container {
+    max-width: 1400px;
+  }
+}

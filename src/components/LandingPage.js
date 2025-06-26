@@ -12,6 +12,7 @@ import FAQSection from './FAQSection.jsx';
 import ContactExperts from './ContactExperts.jsx';
 import HealthIntelligence from './HealthIntelligence.jsx';
 import Footer from './Footer.jsx';
+import TeamSection from './TeamSection.jsx';
 
 const LandingPage = () => {
   return (
@@ -27,6 +28,7 @@ const LandingPage = () => {
       <FAQSection />
       <HealthIntelligence />
       <ContactExperts />
+      <TeamSection />
       <Footer />
     </div>
   );
