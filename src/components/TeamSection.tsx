@@ -1,13 +1,31 @@
 import React from 'react';
 import './TeamSection.css';
 
-const TeamMemberCard = ({ name, title, isLarge = false }) => {
-  // Generate a random ID for picsum.photos to get different images
-  const randomId = Math.floor(Math.random() * 1000); 
-  const largeImageUrl = `https://picsum.photos/id/${randomId}/300/300`;
-  const smallImageUrl = `https://picsum.photos/id/${randomId}/200/200`;
+// 1. Define an interface for the props of TeamMemberCard
+interface TeamMemberCardProps {
+  name: string;
+  title: string;
+  isLarge?: boolean; // '?' makes it optional
+}
 
-  // Fallback placeholder in case the picsum.photos URL fails
+// Helper function to generate a stable, unique ID for a string
+const stringToUniqueId = (str: string): number => { // Added type for 'str' and return type
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return Math.abs(hash % 1000); // Use modulo to keep it within picsum.photos ID range (0-1000 roughly)
+};
+
+// 2. Use the interface in your component's function signature
+const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ name, title, isLarge = false }) => {
+  const stableRandomId = stringToUniqueId(name);
+
+  const largeImageUrl = `https://picsum.photos/id/${stableRandomId}/300/300`;
+  const smallImageUrl = `https://picsum.photos/id/${stableRandomId}/200/200`;
+
   const fallbackLargePlaceholder = `https://placehold.co/300x300/2a2a2a/ffffff?text=${encodeURIComponent(name.replace(' ', '+'))}+Large`;
   const fallbackSmallPlaceholder = `https://placehold.co/200x200/2a2a2a/ffffff?text=${encodeURIComponent(name.replace(' ', '+'))}+Small`;
 
@@ -20,9 +38,9 @@ const TeamMemberCard = ({ name, title, isLarge = false }) => {
         src={finalImageUrl}
         alt={name}
         className="team-member-image"
-        onError={(e) => { 
-          e.target.onerror = null;
-          e.target.src = onErrorFallback; 
+        onError={(e) => {
+          e.currentTarget.onerror = null;
+          e.currentTarget.src = onErrorFallback;
         }}
       />
       <div className="team-member-overlay"></div>
@@ -34,8 +52,15 @@ const TeamMemberCard = ({ name, title, isLarge = false }) => {
   );
 };
 
-const TeamSection = () => {
-  const teamMembers = [
+// 3. (Optional but good practice) Define an interface for the team member objects
+interface TeamMember {
+  name: string;
+  title: string;
+  large?: boolean;
+}
+
+const TeamSection: React.FC = () => { // Type for TeamSection
+  const teamMembers: TeamMember[] = [ // Explicitly type the array
     { name: 'Vikash Kumar', title: 'CEO', large: true },
     { name: 'Vittorio Cegliano', title: 'CTO', large: true },
     { name: 'Vittoria La Barbera', title: 'PhD, CSO' },
@@ -68,14 +93,14 @@ const TeamSection = () => {
 
       <div className="team-members-grid-container">
         <div className="team-members-row large-members-row">
-          {teamMembers.slice(0, 2).map((member, index) => (
-            <TeamMemberCard key={index} {...member} isLarge={true} />
+          {teamMembers.slice(0, 2).map((member) => (
+            <TeamMemberCard key={member.name} {...member} isLarge={true} />
           ))}
         </div>
 
         <div className="team-members-grid">
-          {teamMembers.slice(2).map((member, index) => (
-            <TeamMemberCard key={index} {...member} />
+          {teamMembers.slice(2).map((member) => (
+            <TeamMemberCard key={member.name} {...member} />
           ))}
         </div>
       </div>

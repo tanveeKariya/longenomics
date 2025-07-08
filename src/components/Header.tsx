@@ -8,8 +8,13 @@ const Header = () => {
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const navigate = useNavigate();
 
-  // This function handles scrolling to sections on the homepage.
-  // It's not directly related to the dropdown click issue but kept for completeness.
+  // Helper to close all menus/dropdowns
+  const closeAllMenus = () => {
+    setIsMenuOpen(false);
+    setIsPlatformOpen(false);
+    setIsSupportOpen(false);
+  };
+
   const scrollToSection = (sectionId: string) => {
     if (window.location.pathname !== '/') {
       navigate('/');
@@ -25,51 +30,43 @@ const Header = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
+    closeAllMenus(); // Close all menus after scrolling
   };
 
-  // Handles clicks on any of the "Platform" dropdown links
   const handlePlatformClick = () => {
     console.log("Platform item clicked! Navigating to /dashboard");
     navigate('/dashboard');
-    setIsPlatformOpen(false); // Close the platform sub-dropdown
-    setIsMenuOpen(false);    // Close the main mobile menu
+    closeAllMenus(); // Close all menus after navigation
   };
 
-  // Handles "See Features" if it were a separate button, though currently not used this way
   const handleSeeFeatures = () => {
     console.log("See Features clicked!");
     navigate('/dashboard');
-    setIsMenuOpen(false); // Close mobile menu if clicked from mobile
+    closeAllMenus();
   };
 
-  // Handles the main "Join" button click
   const handleJoinNow = () => {
     console.log("Join Now clicked!");
     navigate('/join');
-    setIsMenuOpen(false); // Close mobile menu if clicked from mobile
+    closeAllMenus();
   };
 
-  // Handles the "Blog" button click, opening in a new tab
   const handleArticlesClick = () => {
     console.log("Blog clicked!");
     window.open('https://longenomics.substack.com/', '_blank');
-    setIsMenuOpen(false); // Close mobile menu if open
+    closeAllMenus();
   };
 
-  // Handles "Help Center" click from Support dropdown
   const handleSupportClick = () => {
     console.log("Help Center clicked!");
     navigate('/support');
-    setIsSupportOpen(false); // Close support sub-dropdown
-    setIsMenuOpen(false);    // Close main mobile menu
+    closeAllMenus();
   };
 
-  // Handles "Contact" click from Support dropdown
   const handleContactClick = () => {
     console.log("Contact clicked!");
     navigate('/contact');
-    setIsSupportOpen(false); // Close support sub-dropdown
-    setIsMenuOpen(false);    // Close main mobile menu
+    closeAllMenus();
   };
 
   return (
@@ -77,7 +74,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
+          <Link to="/" className="flex items-center space-x-2" onClick={closeAllMenus}>
             <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
               <Star className="w-5 h-5 text-white fill-white" />
             </div>
@@ -199,7 +196,7 @@ const Header = () => {
               )}
             </div>
 
-            <Link to="/about" className="text-gray-700 hover:text-gray-900">About</Link>
+            <Link to="/about" className="text-gray-700 hover:text-gray-900" onClick={closeAllMenus}>About</Link>
             <button onClick={handleArticlesClick} className="text-gray-700 hover:text-gray-900">Blog</button>
 
             <div className="relative">
@@ -231,7 +228,7 @@ const Header = () => {
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden"
+              className="md:hidden z-50" // Added z-index for the toggle button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -241,11 +238,10 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-100">
-            <div className="flex flex-col space-y-4">
+          <div className="md:hidden py-4 border-t border-gray-100 absolute w-full left-0 bg-white shadow-lg z-40"> {/* Adjusted z-index here */}
+            <div className="flex flex-col space-y-4 px-4"> {/* Added px-4 for consistent padding */}
               {/* Platform Section */}
               <div>
-                {/* Toggle for the mobile Platform dropdown */}
                 <div
                   className="flex items-center justify-between text-gray-700 cursor-pointer py-2"
                   onClick={() => setIsPlatformOpen(!isPlatformOpen)}
@@ -261,7 +257,6 @@ const Header = () => {
                       <div>
                         <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">PERSONALIZED HEALTH</h3>
                         <div className="space-y-3">
-                          {/* Each platform item now explicitly calls handlePlatformClick */}
                           <div className="flex items-start space-x-3 cursor-pointer" onClick={handlePlatformClick}>
                             <FileText className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
                             <div>
@@ -363,7 +358,7 @@ const Header = () => {
               <Link
                 to="/about"
                 className="text-gray-700 py-2"
-                onClick={() => setIsMenuOpen(false)} // Close menu when clicking About
+                onClick={closeAllMenus}
               >
                 About
               </Link>
@@ -378,7 +373,6 @@ const Header = () => {
 
               {/* Support Section in mobile menu */}
               <div>
-                {/* Toggle for the mobile Support dropdown */}
                 <div
                   className="flex items-center justify-between text-gray-700 cursor-pointer py-2"
                   onClick={() => setIsSupportOpen(!isSupportOpen)}
@@ -409,7 +403,7 @@ const Header = () => {
               <Link
                 to="/careers"
                 className="text-gray-700 py-2"
-                onClick={() => setIsMenuOpen(false)} // Close menu when clicking Careers
+                onClick={closeAllMenus}
               >
                 Careers
               </Link>
@@ -418,14 +412,21 @@ const Header = () => {
         )}
       </div>
 
-      {/* Overlay for dropdowns (desktop and mobile) */}
-      {(isPlatformOpen || isSupportOpen) && (
+      {/* Conditional Overlay for desktop dropdowns, and for mobile if sub-dropdowns are open */}
+      {(isPlatformOpen || isSupportOpen) && !isMenuOpen && ( // Only show overlay for desktop dropdowns
         <div
           className="fixed inset-0 bg-black bg-opacity-20 z-40"
+          onClick={closeAllMenus}
+        />
+      )}
+
+      {/* New: Overlay for mobile sub-dropdowns only. Higher z-index than main menu, lower than dropdown content */}
+      {isMenuOpen && (isPlatformOpen || isSupportOpen) && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-10 z-30" // Slightly lower opacity and z-index than main menu
           onClick={() => {
-            setIsPlatformOpen(false);
+            setIsPlatformOpen(false); // Only close sub-dropdowns
             setIsSupportOpen(false);
-            setIsMenuOpen(false); // If overlay is clicked, ensure main menu also closes
           }}
         />
       )}
