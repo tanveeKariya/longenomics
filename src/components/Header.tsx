@@ -8,6 +8,8 @@ const Header = () => {
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const navigate = useNavigate();
 
+  // This function handles scrolling to sections on the homepage.
+  // It's not directly related to the dropdown click issue but kept for completeness.
   const scrollToSection = (sectionId: string) => {
     if (window.location.pathname !== '/') {
       navigate('/');
@@ -25,35 +27,49 @@ const Header = () => {
     }
   };
 
+  // Handles clicks on any of the "Platform" dropdown links
   const handlePlatformClick = () => {
+    console.log("Platform item clicked! Navigating to /dashboard");
     navigate('/dashboard');
-    setIsPlatformOpen(false);
-    setIsMenuOpen(false);
+    setIsPlatformOpen(false); // Close the platform sub-dropdown
+    setIsMenuOpen(false);    // Close the main mobile menu
   };
 
+  // Handles "See Features" if it were a separate button, though currently not used this way
   const handleSeeFeatures = () => {
+    console.log("See Features clicked!");
     navigate('/dashboard');
+    setIsMenuOpen(false); // Close mobile menu if clicked from mobile
   };
 
+  // Handles the main "Join" button click
   const handleJoinNow = () => {
+    console.log("Join Now clicked!");
     navigate('/join');
+    setIsMenuOpen(false); // Close mobile menu if clicked from mobile
   };
 
+  // Handles the "Blog" button click, opening in a new tab
   const handleArticlesClick = () => {
+    console.log("Blog clicked!");
     window.open('https://longenomics.substack.com/', '_blank');
     setIsMenuOpen(false); // Close mobile menu if open
   };
 
+  // Handles "Help Center" click from Support dropdown
   const handleSupportClick = () => {
+    console.log("Help Center clicked!");
     navigate('/support');
-    setIsSupportOpen(false);
-    setIsMenuOpen(false);
+    setIsSupportOpen(false); // Close support sub-dropdown
+    setIsMenuOpen(false);    // Close main mobile menu
   };
 
+  // Handles "Contact" click from Support dropdown
   const handleContactClick = () => {
+    console.log("Contact clicked!");
     navigate('/contact');
-    setIsSupportOpen(false);
-    setIsMenuOpen(false);
+    setIsSupportOpen(false); // Close support sub-dropdown
+    setIsMenuOpen(false);    // Close main mobile menu
   };
 
   return (
@@ -61,7 +77,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
             <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
               <Star className="w-5 h-5 text-white fill-white" />
             </div>
@@ -78,7 +94,7 @@ const Header = () => {
                 <span>Platform</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
-              
+
               {isPlatformOpen && (
                 <div className="absolute top-full left-0 mt-2 w-[800px] bg-white rounded-2xl shadow-2xl border border-gray-100 p-8 z-50">
                   <div className="grid grid-cols-4 gap-8">
@@ -170,7 +186,7 @@ const Header = () => {
                     <div className="bg-gray-900 rounded-xl p-6 text-white">
                       <h3 className="text-lg font-semibold mb-2">Advance preventive health research</h3>
                       <p className="text-sm text-gray-300 mb-4">Partner with experts in longevity science.</p>
-                      <button 
+                      <button
                         className="text-white hover:text-gray-200 flex items-center space-x-1"
                         onClick={handlePlatformClick}
                       >
@@ -182,10 +198,10 @@ const Header = () => {
                 </div>
               )}
             </div>
-            
+
             <Link to="/about" className="text-gray-700 hover:text-gray-900">About</Link>
             <button onClick={handleArticlesClick} className="text-gray-700 hover:text-gray-900">Blog</button>
-            
+
             <div className="relative">
               <button
                 className="flex items-center space-x-1 text-gray-700 hover:text-gray-900 cursor-pointer"
@@ -194,7 +210,7 @@ const Header = () => {
                 <span>Support</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
-              
+
               {isSupportOpen && (
                 <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-50">
                   <button onClick={handleSupportClick} className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">Help Center</button>
@@ -206,13 +222,13 @@ const Header = () => {
 
           {/* CTA Button and Mobile Menu */}
           <div className="flex items-center space-x-4">
-            <button 
+            <button
               className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium"
               onClick={handleJoinNow}
             >
               Join
             </button>
-            
+
             {/* Mobile menu button */}
             <button
               className="md:hidden"
@@ -229,14 +245,15 @@ const Header = () => {
             <div className="flex flex-col space-y-4">
               {/* Platform Section */}
               <div>
-                <div 
+                {/* Toggle for the mobile Platform dropdown */}
+                <div
                   className="flex items-center justify-between text-gray-700 cursor-pointer py-2"
                   onClick={() => setIsPlatformOpen(!isPlatformOpen)}
                 >
                   <span>Platform</span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${isPlatformOpen ? 'rotate-180' : ''}`} />
                 </div>
-                
+
                 {isPlatformOpen && (
                   <div className="bg-gray-50 rounded-lg p-4 ml-4 mt-2">
                     <div className="space-y-6">
@@ -244,6 +261,7 @@ const Header = () => {
                       <div>
                         <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">PERSONALIZED HEALTH</h3>
                         <div className="space-y-3">
+                          {/* Each platform item now explicitly calls handlePlatformClick */}
                           <div className="flex items-start space-x-3 cursor-pointer" onClick={handlePlatformClick}>
                             <FileText className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
                             <div>
@@ -267,7 +285,7 @@ const Header = () => {
                           </div>
                         </div>
                       </div>
-                      
+
                       {/* Integrations Section */}
                       <div>
                         <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">INTEGRATIONS</h3>
@@ -324,11 +342,11 @@ const Header = () => {
                         </div>
                       </div>
 
-                      {/* CTA Section */}
+                      {/* CTA Section for mobile */}
                       <div className="bg-gray-900 rounded-xl p-4 text-white">
                         <h3 className="text-base font-semibold mb-2">Advance preventive health research</h3>
                         <p className="text-sm text-gray-300 mb-3">Partner with experts in longevity science.</p>
-                        <button 
+                        <button
                           className="text-white hover:text-gray-200 flex items-center space-x-1 text-sm"
                           onClick={handlePlatformClick}
                         >
@@ -340,44 +358,45 @@ const Header = () => {
                   </div>
                 )}
               </div>
-              
-              {/* About Link */}
-              <Link 
-                to="/about" 
+
+              {/* About Link in mobile menu */}
+              <Link
+                to="/about"
                 className="text-gray-700 py-2"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => setIsMenuOpen(false)} // Close menu when clicking About
               >
                 About
               </Link>
-              
-              {/* Blog Link */}
-              <button 
-                onClick={handleArticlesClick} 
+
+              {/* Blog Link in mobile menu */}
+              <button
+                onClick={handleArticlesClick}
                 className="text-gray-700 text-left py-2"
               >
                 Blog
               </button>
-              
-              {/* Support Section */}
+
+              {/* Support Section in mobile menu */}
               <div>
-                <div 
+                {/* Toggle for the mobile Support dropdown */}
+                <div
                   className="flex items-center justify-between text-gray-700 cursor-pointer py-2"
                   onClick={() => setIsSupportOpen(!isSupportOpen)}
                 >
                   <span>Support</span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${isSupportOpen ? 'rotate-180' : ''}`} />
                 </div>
-                
+
                 {isSupportOpen && (
                   <div className="bg-gray-50 rounded-lg p-4 ml-4 mt-2 space-y-2">
-                    <button 
-                      onClick={handleSupportClick} 
+                    <button
+                      onClick={handleSupportClick}
                       className="block w-full text-left text-gray-700 hover:text-gray-900 py-1"
                     >
                       Help Center
                     </button>
-                    <button 
-                      onClick={handleContactClick} 
+                    <button
+                      onClick={handleContactClick}
                       className="block w-full text-left text-gray-700 hover:text-gray-900 py-1"
                     >
                       Contact
@@ -386,11 +405,11 @@ const Header = () => {
                 )}
               </div>
 
-              {/* Careers Link */}
-              <Link 
-                to="/careers" 
+              {/* Careers Link in mobile menu */}
+              <Link
+                to="/careers"
                 className="text-gray-700 py-2"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => setIsMenuOpen(false)} // Close menu when clicking Careers
               >
                 Careers
               </Link>
@@ -399,13 +418,14 @@ const Header = () => {
         )}
       </div>
 
-      {/* Overlay for dropdowns */}
+      {/* Overlay for dropdowns (desktop and mobile) */}
       {(isPlatformOpen || isSupportOpen) && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-20 z-40"
           onClick={() => {
             setIsPlatformOpen(false);
             setIsSupportOpen(false);
+            setIsMenuOpen(false); // If overlay is clicked, ensure main menu also closes
           }}
         />
       )}
