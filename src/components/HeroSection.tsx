@@ -29,7 +29,7 @@ const HeroSection = () => {
   return (
     <section className="bg-gray-50 py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 mb-8 leading-tight tracking-tight">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 mb-8 leading-tight tracking-tight font-semibold">
           Your Gamified Digital<br />
           Twin for Better Health
         </h1>

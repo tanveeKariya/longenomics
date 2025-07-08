@@ -24,7 +24,7 @@ const FeaturesSection = () => {
             </h4>
             <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden border-2 border-gray-300">
               <img 
-                src="https://images.pexels.com/photos/1188751/pexels-photo-1188751.jpeg" 
+                src="https://cdn.prod.website-files.com/685392287f5df8eff390d613/685392f277271d9fcbf1cb54_7903ec84-f498-4711-9645-ccc860595e64.avif" 
                 alt="Health timeline interface" 
                 className="w-full h-full object-cover"
               />
@@ -38,7 +38,7 @@ const FeaturesSection = () => {
             </h4>
             <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden border-2 border-gray-300">
               <img 
-                src="https://images.pexels.com/photos/5083221/pexels-photo-5083221.jpeg" 
+                src="https://cdn.prod.website-files.com/685392287f5df8eff390d613/685392f2b748cb521ead3f8d_c52ec2f4-badd-4492-a715-92ae6bfb3d5c.avif" 
                 alt="Data visualization with smartwatch" 
                 className="w-full h-full object-cover"
               />
@@ -54,7 +54,7 @@ const FeaturesSection = () => {
             </h4>
             <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden border-2 border-gray-300">
               <img 
-                src="https://images.pexels.com/photos/1472887/pexels-photo-1472887.jpeg" 
+                src="https://cdn.prod.website-files.com/685392287f5df8eff390d613/685392f2a63c889514074010_1826986f-f50d-4568-b8c0-40fa779c39cf.avif" 
                 alt="Meditation and wellness session" 
                 className="w-full h-full object-cover"
               />
@@ -68,7 +68,7 @@ const FeaturesSection = () => {
             </h4>
             <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden border-2 border-gray-300">
               <img 
-                src="https://images.pexels.com/photos/9944901/pexels-photo-9944901.jpeg" 
+                src="https://cdn.prod.website-files.com/685392287f5df8eff390d613/685392f20292ee1d3dd8f5ab_90ac9e67-1057-47c1-933d-4269a8ab9b71.avif" 
                 alt="Health goal setting interface" 
                 className="w-full h-full object-cover"
               />

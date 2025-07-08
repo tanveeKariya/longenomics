@@ -1050,6 +1050,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { 
   User, 
   Heart, 
@@ -1082,6 +1083,7 @@ import {
   Eye
 } from 'lucide-react';
 
+
 // Circular Progress Component
 const CircularProgress: React.FC<{ value: number; size?: number; strokeWidth?: number }> = ({ 
   value, 
@@ -1091,6 +1093,7 @@ const CircularProgress: React.FC<{ value: number; size?: number; strokeWidth?: n
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (value / 100) * circumference;
+
 
   return (
     <div className="flex items-center space-x-6">
@@ -1791,10 +1794,10 @@ const Dashboard: React.FC = () => {
         >
           <div className="flex items-center mb-8">
             <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full mr-3"></div>
-            <div>
-              <h2 className="text-xl font-bold">LongevityAI</h2>
-              <p className="text-xs text-gray-500">Dashboard</p>
-            </div>
+          <Link to="/" className="block cursor-pointer">
+  <h2 className="text-xl font-bold">Longeconomics</h2>
+  <p className="text-xs text-gray-500">Dashboard</p>
+</Link>
           </div>
 
           <nav className="space-y-2">
@@ -1819,8 +1822,8 @@ const Dashboard: React.FC = () => {
             <div className="flex items-center mb-2">
               <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full mr-3"></div>
               <div>
-                <p className="font-medium">John Doe</p>
-                <p className="text-xs text-gray-500">Age: 42</p>
+                <p className="font-medium">Soumik</p>
+                <p className="text-xs text-gray-500">Age: 36</p>
               </div>
             </div>
           </div>
@@ -1833,7 +1836,7 @@ const Dashboard: React.FC = () => {
             <div className="flex justify-between items-center">
               <div>
                 <h1 className="text-2xl font-bold">Health Dashboard</h1>
-                <p className="text-gray-500">Track your longevity journey</p>
+                <p className="text-gray-500">Track your longeconomic journey</p>
               </div>
               <div className="flex items-center space-x-4">
                 <button className="p-2 hover:bg-gray-800/50 rounded-lg transition-colors">
@@ -1857,7 +1860,7 @@ const Dashboard: React.FC = () => {
               >
                 <div className="text-center">
                   <CircularProgress value={86} />
-                  <h3 className="text-xl font-bold mt-4">Longevity Score</h3>
+                  <h3 className="text-xl font-bold mt-4">longeconomic Score</h3>
                   <p className="text-gray-500">Excellent</p>
                 </div>
               </motion.div>
@@ -1868,9 +1871,9 @@ const Dashboard: React.FC = () => {
                 transition={{ delay: 0.1 }}
                 className="bg-gray-900/60 backdrop-blur-xl rounded-2xl p-6 border border-gray-800 text-center"
               >
-                <div className="text-4xl font-bold text-blue-400">36</div>
+                <div className="text-4xl font-bold text-blue-400">31</div>
                 <h3 className="text-xl font-bold mt-2">Biological Age</h3>
-                <p className="text-gray-500">6 years younger</p>
+                <p className="text-gray-500">5 years younger</p>
               </motion.div>
 
               <motion.div 
@@ -1879,7 +1882,7 @@ const Dashboard: React.FC = () => {
                 transition={{ delay: 0.2 }}
                 className="bg-gray-900/60 backdrop-blur-xl rounded-2xl p-6 border border-gray-800 text-center"
               >
-                <div className="text-4xl font-bold text-gray-400">42</div>
+                <div className="text-4xl font-bold text-gray-400">36</div>
                 <h3 className="text-xl font-bold mt-2">Chronological Age</h3>
                 <p className="text-gray-500">Actual age</p>
               </motion.div>
