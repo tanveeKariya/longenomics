@@ -9,7 +9,7 @@ import TeamSection from './TeamSection';
 import ContactExperts from './ContactExperts';
 import FAQSection from './FAQSection';
 import HealthIntelligence from './HealthIntelligence';
-
+import Footer from './Footer';  
 import UserStories from './UserStories';
 // import './HeroSection.css'; // Uncomment if you have specific styles for this section
 
@@ -63,6 +63,7 @@ const HeroSection = () => {
       <HealthIntelligence />
       <ContactExperts />
       <TeamSection />
+      <Footer />
     </section>
    
   );

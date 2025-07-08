@@ -24,7 +24,7 @@ const FeaturesSection = () => {
             </h4>
             <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden border-2 border-gray-300">
               <img 
-                src="https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" 
+                src="https://images.pexels.com/photos/1188751/pexels-photo-1188751.jpeg" 
                 alt="Health timeline interface" 
                 className="w-full h-full object-cover"
               />
@@ -38,8 +38,8 @@ const FeaturesSection = () => {
             </h4>
             <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden border-2 border-gray-300">
               <img 
-                src="https://images.pexels.com/photos/3825581/pexels-photo-3825581.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" 
-                alt="Data visualization with DNA and charts" 
+                src="https://images.pexels.com/photos/5083221/pexels-photo-5083221.jpeg" 
+                alt="Data visualization with smartwatch" 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -54,7 +54,7 @@ const FeaturesSection = () => {
             </h4>
             <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden border-2 border-gray-300">
               <img 
-                src="https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" 
+                src="https://images.pexels.com/photos/1472887/pexels-photo-1472887.jpeg" 
                 alt="Meditation and wellness session" 
                 className="w-full h-full object-cover"
               />
@@ -68,8 +68,8 @@ const FeaturesSection = () => {
             </h4>
             <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden border-2 border-gray-300">
               <img 
-                src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" 
-                alt="Digital health interface" 
+                src="https://images.pexels.com/photos/9944901/pexels-photo-9944901.jpeg" 
+                alt="Health goal setting interface" 
                 className="w-full h-full object-cover"
               />
             </div>

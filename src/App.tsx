@@ -38,7 +38,7 @@ function App() {
         <Route path="/join" element={<ComingSoon title="Join Now" />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
-      <Footer />
+      
     </div>
   );
 }
