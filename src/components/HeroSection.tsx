@@ -13,7 +13,7 @@ import Footer from './Footer';
 import UserStories from './UserStories';
 // import './HeroSection.css'; // Uncomment if you have specific styles for this section
 
-
+import Header from './Header'; // Ensure this is the correct path to your Header component
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -27,6 +27,8 @@ const HeroSection = () => {
   };
 
   return (
+    <>
+      <Header />
     <section className="bg-gray-50 py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 mb-8 leading-tight tracking-tight font-semibold">
@@ -53,6 +55,7 @@ const HeroSection = () => {
           </button>
         </div>
       </div>
+    
        <DashboardSection />
       <FeaturesSection />
       <PlatformSection />
@@ -65,6 +68,7 @@ const HeroSection = () => {
       <TeamSection />
       <Footer />
     </section>
+    </>
    
   );
 };

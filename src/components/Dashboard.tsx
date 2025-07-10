@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  User, 
-  Heart, 
-  Brain, 
-  Activity, 
-  Zap, 
-  Mic, 
+import {
+  User,
+  Heart,
+  Brain,
+  Activity,
+  Zap,
+  Mic,
   MicOff,
   Play,
   Pause,
@@ -36,10 +36,10 @@ import {
 
 
 // Circular Progress Component
-const CircularProgress: React.FC<{ value: number; size?: number; strokeWidth?: number }> = ({ 
-  value, 
-  size = 120, 
-  strokeWidth = 8 
+const CircularProgress: React.FC<{ value: number; size?: number; strokeWidth?: number }> = ({
+  value,
+  size = 120,
+  strokeWidth = 8
 }) => {
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
@@ -114,7 +114,7 @@ const LineChart: React.FC = () => {
             <stop offset="100%" stopColor="#14B8A6" stopOpacity="0.1" />
           </linearGradient>
         </defs>
-        
+
         {[0, 1, 2, 3, 4].map((i) => (
           <line
             key={i}
@@ -126,7 +126,7 @@ const LineChart: React.FC = () => {
             strokeWidth="1"
           />
         ))}
-        
+
         <motion.polygon
           points={areaPoints}
           fill="url(#areaGradient)"
@@ -134,7 +134,7 @@ const LineChart: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
         />
-        
+
         <motion.polyline
           points={points}
           fill="none"
@@ -146,7 +146,7 @@ const LineChart: React.FC = () => {
           animate={{ pathLength: 1 }}
           transition={{ duration: 2, ease: "easeInOut" }}
         />
-        
+
         {data.map((value, index) => (
           <motion.circle
             key={index}
@@ -162,7 +162,7 @@ const LineChart: React.FC = () => {
             className="hover:r-6 transition-all cursor-pointer"
           />
         ))}
-        
+
         {labels.map((label, index) => (
           <text
             key={index}
@@ -207,7 +207,7 @@ const DonutChart: React.FC = () => {
             stroke="rgba(255, 255, 255, 0.1)"
             strokeWidth={strokeWidth}
           />
-          
+
           {data.map((item, index) => {
             const percent = item.value / total;
             const strokeDasharray = `${percent * circumference} ${circumference}`;
@@ -233,7 +233,7 @@ const DonutChart: React.FC = () => {
             );
           })}
         </svg>
-        
+
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
             <div className="text-2xl font-bold text-blue-400">{total}%</div>
@@ -241,7 +241,7 @@ const DonutChart: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="ml-6 space-y-2">
         {data.map((item, index) => (
           <motion.div
@@ -251,7 +251,7 @@ const DonutChart: React.FC = () => {
             transition={{ delay: index * 0.2 + 0.5 }}
             className="flex items-center text-sm"
           >
-            <div 
+            <div
               className="w-3 h-3 rounded-full mr-2"
               style={{ backgroundColor: item.color }}
             ></div>
@@ -288,7 +288,7 @@ const BarChart: React.FC = () => {
             </linearGradient>
           ))}
         </defs>
-        
+
         {[0, 1, 2, 3, 4].map((i) => (
           <line
             key={i}
@@ -300,13 +300,13 @@ const BarChart: React.FC = () => {
             strokeWidth="1"
           />
         ))}
-        
+
         {data.map((item, index) => {
           const barHeight = (item.value / maxValue) * 60;
           const barWidth = 30;
           const barX = index * 40 + 5;
           const barY = 80 - barHeight;
-          
+
           return (
             <g key={index}>
               <motion.rect
@@ -321,7 +321,7 @@ const BarChart: React.FC = () => {
                 transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
                 className="hover:opacity-80 transition-opacity cursor-pointer"
               />
-              
+
               <motion.text
                 x={barX + barWidth / 2}
                 y={barY - 5}
@@ -333,7 +333,7 @@ const BarChart: React.FC = () => {
               >
                 {item.value}
               </motion.text>
-              
+
               <text
                 x={barX + barWidth / 2}
                 y="95"
@@ -375,7 +375,7 @@ const HumanBody: React.FC<{ biomarkers: any[] }> = ({ biomarkers }) => {
             className="relative"
           >
             <img
-              src="data:image/png;base64,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"
+              src="https://up.yimg.com/ib/th/id/OIP.O5yGM8MY1LbEgyv4ahyUzAHaHa?pid=Api&rs=1&c=1&qlt=95&w=109&h=109"
               alt="Human Body Anatomy"
               className="w-64 h-80 object-cover rounded-lg opacity-70 filter grayscale contrast-125"
               style={{
@@ -383,10 +383,10 @@ const HumanBody: React.FC<{ biomarkers: any[] }> = ({ biomarkers }) => {
                 WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.8) 100%)'
               }}
             />
-            
+
             {/* Overlay gradient for better integration */}
             <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 via-transparent to-purple-900/20 rounded-lg"></div>
-            
+
             {/* Subtle glow effect */}
             <div className="absolute inset-0 rounded-lg shadow-2xl shadow-blue-500/20"></div>
           </motion.div>
@@ -407,23 +407,23 @@ const HumanBody: React.FC<{ biomarkers: any[] }> = ({ biomarkers }) => {
         >
           <motion.div
             className={`relative p-4 rounded-full backdrop-blur-sm border-2 transition-all duration-300 ${
-              hoveredOrgan === organ.name 
-                ? 'bg-gray-800/80 border-white/40 shadow-2xl' 
+              hoveredOrgan === organ.name
+                ? 'bg-gray-800/80 border-white/40 shadow-2xl'
                 : 'bg-gray-800/60 border-gray-600/60 hover:bg-gray-800/70'
             }`}
             animate={{
               scale: hoveredOrgan === organ.name ? 1.2 : 1,
-              boxShadow: hoveredOrgan === organ.name 
+              boxShadow: hoveredOrgan === organ.name
                 ? `0 0 30px ${organ.color}60`
                 : '0 0 0px transparent'
             }}
             transition={{ duration: 0.3 }}
           >
-            <organ.icon 
-              className="w-6 h-6 transition-colors duration-300" 
+            <organ.icon
+              className="w-6 h-6 transition-colors duration-300"
               style={{ color: organ.color }}
             />
-            
+
             {/* Pulsing ring effect */}
             {hoveredOrgan === organ.name && (
               <motion.div
@@ -568,8 +568,8 @@ const VoiceRecorder: React.FC<{
         <motion.button
           onClick={isRecording ? onStopRecording : onStartRecording}
           className={`relative w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 ${
-            isRecording 
-              ? 'bg-red-500 hover:bg-red-600 shadow-lg shadow-red-500/30' 
+            isRecording
+              ? 'bg-red-500 hover:bg-red-600 shadow-lg shadow-red-500/30'
               : 'bg-blue-500 hover:bg-blue-600 shadow-lg shadow-blue-500/30'
           }`}
           whileHover={{ scale: 1.05 }}
@@ -580,7 +580,7 @@ const VoiceRecorder: React.FC<{
           ) : (
             <Mic className="w-8 h-8 text-white" />
           )}
-          
+
           {isRecording && (
             <motion.div
               className="absolute inset-0 rounded-full border-2 border-red-400"
@@ -608,7 +608,7 @@ const VoiceRecorder: React.FC<{
           >
             <h4 className="text-lg font-semibold mb-2 text-blue-400">AI Question</h4>
             <p className="text-gray-300">{currentQuestion}</p>
-            
+
             {isRecording && (
               <div className="flex justify-center mt-4 space-x-1">
                 {[...Array(5)].map((_, i) => (
@@ -735,17 +735,18 @@ const Dashboard: React.FC = () => {
       <div className="fixed inset-0 opacity-5">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-gray-900 to-purple-900"></div>
       </div>
-      
+
       <div className="relative z-10 flex h-screen">
         {/* Sidebar */}
         <AnimatePresence>
           {isSidebarOpen && (
-            <motion.div 
+            <motion.div
               initial={{ x: -300 }}
               animate={{ x: 0 }}
               exit={{ x: -300 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-y-0 left-0 w-64 bg-gray-900/80 backdrop-blur-xl border-r border-gray-800 p-6 lg:static lg:block z-50" // Added fixed and z-index for mobile
+              // Modified className for responsive sidebar behavior
+              className="fixed inset-y-0 left-0 w-64 bg-gray-900/80 backdrop-blur-xl border-r border-gray-800 p-6 lg:static lg:block z-50"
             >
               <div className="flex items-center mb-8">
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full mr-3"></div>
@@ -788,16 +789,18 @@ const Dashboard: React.FC = () => {
             </motion.div>
           )}
         </AnimatePresence>
-        
+
         {/* Main Content */}
-        <div className="flex-1 flex flex-col">
+        {/* Added conditional margin-left to main content when sidebar is open on larger screens */}
+        <div className={`flex-1 flex flex-col lg:ml-64 ${isSidebarOpen && window.innerWidth < 1024 ? 'ml-64' : ''}`}>
           {/* Header */}
           <header className="bg-gray-900/80 backdrop-blur-xl border-b border-gray-800 p-4">
             <div className="flex justify-between items-center">
-              <div className="flex items-center"> {/* Added flex container for menu and title */}
-                <button 
+              <div className="flex items-center">
+                <button
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  className="p-2 mr-3 lg:hidden hover:bg-gray-800/50 rounded-lg transition-colors" // Hamburger menu for small screens
+                  // Hamburger menu for small screens, hidden on large screens
+                  className="p-2 mr-3 lg:hidden hover:bg-gray-800/50 rounded-lg transition-colors"
                 >
                   <Menu className="w-6 h-6" />
                 </button>
@@ -821,10 +824,10 @@ const Dashboard: React.FC = () => {
           <div className="flex-1 p-6 overflow-y-auto">
             {/* Top Stats Row */}
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
-              <motion.div 
+              <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                className="bg-gray-900/60 backdrop-blur-xl rounded-2xl p-6 border border-gray-800 col-span-1 lg:col-span-2" // Adjusted col-span for better mobile layout
+                className="bg-gray-900/60 backdrop-blur-xl rounded-2xl p-6 border border-gray-800 col-span-1 lg:col-span-2"
               >
                 <div className="text-center">
                   <CircularProgress value={86} />
@@ -833,7 +836,7 @@ const Dashboard: React.FC = () => {
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.1 }}
@@ -844,7 +847,7 @@ const Dashboard: React.FC = () => {
                 <p className="text-gray-500">5 years younger</p>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
@@ -858,7 +861,7 @@ const Dashboard: React.FC = () => {
 
             {/* Second Row */}
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
-              <motion.div 
+              <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
@@ -867,11 +870,11 @@ const Dashboard: React.FC = () => {
                 <WearableData />
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="bg-gray-900/60 backdrop-blur-xl rounded-2xl p-6 border border-gray-800 col-span-1 lg:col-span-2" // Adjusted col-span
+                className="bg-gray-900/60 backdrop-blur-xl rounded-2xl p-6 border border-gray-800 col-span-1 lg:col-span-2"
               >
                 <div className="text-center">
                   <motion.div
@@ -888,11 +891,11 @@ const Dashboard: React.FC = () => {
                   >
                     <span className="text-3xl">🏆</span>
                   </motion.div>
-                  
+
                   <h4 className="text-xl font-bold text-yellow-400 mb-2">Your Achievement</h4>
                   <div className="text-3xl font-bold text-white mb-1">100</div>
                   <div className="text-lg text-yellow-300 mb-4">Longenomic Tokens</div>
-                  
+
                   <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700/50">
                     <div className="text-sm text-gray-300 mb-2">Progress to Next Level</div>
                     <div className="w-full bg-gray-700 rounded-full h-3 mb-3">
@@ -910,7 +913,7 @@ const Dashboard: React.FC = () => {
                 </div>
               </motion.div>
 
-              <motion.div 
+              <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5 }}
@@ -923,7 +926,7 @@ const Dashboard: React.FC = () => {
             </div>
 
             {/* Body Overview Section */}
-            <motion.div 
+            <motion.div
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.6 }}
@@ -936,11 +939,11 @@ const Dashboard: React.FC = () => {
             </motion.div>
 
             {/* Charts Section */}
-            <motion.div 
-              initial={{ y: 20, opacity: 0 }}
+            <motion.div
+              initial={{ y: 20, opacity: 0 }} // Corrected: Changed 2:0 to 20
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" // Adjusted for better chart display on medium screens
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"
             >
               <div className="bg-gray-900/60 backdrop-blur-xl rounded-2xl p-6 border border-gray-800">
                 <h3 className="text-xl font-bold mb-4">Glucose Trend</h3>
@@ -957,14 +960,14 @@ const Dashboard: React.FC = () => {
             </motion.div>
 
             {/* Biomarker Grid */}
-            <motion.div 
+            <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.8 }}
               className="mb-8"
             >
               <h3 className="text-xl font-bold mb-4">Biomarkers</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"> {/* Adjusted for more breakpoints */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 {biomarkerData.map((marker, index) => (
                   <div key={index} className="bg-gray-900/60 backdrop-blur-xl rounded-xl p-4 border border-gray-800">
                     <div className="text-sm text-gray-500">{marker.name}</div>
@@ -976,14 +979,14 @@ const Dashboard: React.FC = () => {
             </motion.div>
 
             {/* Voice Recorder Section */}
-            <motion.div 
+            <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.9 }}
               className="bg-gray-900/60 backdrop-blur-xl rounded-2xl p-6 border border-gray-800 mb-8"
             >
               <h3 className="text-xl font-bold mb-4">AI Health Assessment</h3>
-              <VoiceRecorder 
+              <VoiceRecorder
                 isRecording={isRecording}
                 onStartRecording={startRecording}
                 onStopRecording={stopRecording}
@@ -994,11 +997,11 @@ const Dashboard: React.FC = () => {
             </motion.div>
 
             {/* AI Insights - Collapsible */}
-            <motion.div 
-              initial={{ y: 20, opacity: 0 }}
+            <motion.div
+              initial={{ y: 20, opacity: 0 }} // Corrected: Changed 2:0 to 20
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1.0 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" // Adjusted for medium screens
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {/* Suggested Actions */}
               <div className="bg-gray-900/60 backdrop-blur-xl rounded-2xl border border-gray-800">

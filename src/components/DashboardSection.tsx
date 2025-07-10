@@ -7,7 +7,7 @@ const DashboardSection = () => {
         <div className="flex justify-center">
           <div className="relative">
             <img 
-              src="https://images.pexels.com/photos/6963944/pexels-photo-6963944.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop" 
+              src="https://cdn.prod.website-files.com/685392287f5df8eff390d613/685392f2eef67bc4547f2e4a_fcf26711-3eff-4ebd-a7bb-9fbef6554280.avif" 
               alt="Health dashboard on tablet" 
               className="rounded-2xl shadow-2xl max-w-4xl w-full"
             />
