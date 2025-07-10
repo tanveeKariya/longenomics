@@ -78,7 +78,8 @@ const Header = () => {
             <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
               <Star className="w-5 h-5 text-white fill-white" />
             </div>
-            <span className="text-xl font-semibold text-gray-900">Longeconomics</span>
+            {/* <span className="text-xl font-semibold text-gray-900">Longeconomics</span> */}
+            <span className="text-xl font-bold text-gray-900">Longenomics</span>
           </Link>
 
           {/* Desktop Navigation */}

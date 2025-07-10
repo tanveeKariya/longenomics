@@ -31,9 +31,10 @@ import {
   Watch,
   Smartphone,
   Eye,
-  Menu // Import Menu icon
+  Menu,
+  X,
+  Star
 } from 'lucide-react';
-
 
 // Circular Progress Component
 const CircularProgress: React.FC<{ value: number; size?: number; strokeWidth?: number }> = ({
@@ -44,7 +45,6 @@ const CircularProgress: React.FC<{ value: number; size?: number; strokeWidth?: n
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (value / 100) * circumference;
-
 
   return (
     <div className="flex items-center space-x-6">
@@ -375,7 +375,7 @@ const HumanBody: React.FC<{ biomarkers: any[] }> = ({ biomarkers }) => {
             className="relative"
           >
             <img
-              src="https://up.yimg.com/ib/th/id/OIP.O5yGM8MY1LbEgyv4ahyUzAHaHa?pid=Api&rs=1&c=1&qlt=95&w=109&h=109"
+              src="https://up.yimg.com/ib/th/id/OIP.O5yGM8MY1LbEgyv4ahyUzAHaHa?pid=Api&rs=1&c=1&qlt=95&w=112&h=112"
               alt="Human Body Anatomy"
               className="w-64 h-80 object-cover rounded-lg opacity-70 filter grayscale contrast-125"
               style={{
@@ -666,7 +666,7 @@ const Dashboard: React.FC = () => {
     diet: false,
     tests: false
   });
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // New state for sidebar
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const healthQuestions = [
     "How has your energy level been over the past week?",
@@ -731,12 +731,50 @@ const Dashboard: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-950 text-white overflow-hidden">
+    <div className="min-h-screen bg-gray-950 text-white">
       <div className="fixed inset-0 opacity-5">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-gray-900 to-purple-900"></div>
       </div>
 
-      <div className="relative z-10 flex h-screen">
+      {/* Top Navbar */}
+      <nav className="fixed top-0 left-0 right-0 bg-gray-900/80 backdrop-blur-xl border-b border-gray-800 z-50">
+        <div className="flex items-center justify-between px-4 h-16">
+          {/* Left side - Logo and hamburger */}
+          <div className="flex items-center">
+            <button
+              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              className="p-2 mr-3 hover:bg-gray-800/50 rounded-lg transition-colors lg:hidden"
+            >
+              {isSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+            
+            <Link to="/" className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full flex items-center justify-center">
+                <Star className="w-5 h-5 text-white fill-white" />
+              </div>
+              <span className="text-xl font-semibold hidden sm:block">Longenomics</span>
+            </Link>
+          </div>
+
+          {/* Center - Title */}
+          <div className="flex-1 text-center">
+            <h1 className="text-xl font-bold">Health Dashboard</h1>
+            <p className="text-sm text-gray-500 hidden sm:block">Track your longevity journey</p>
+          </div>
+
+          {/* Right side - Actions */}
+          <div className="flex items-center space-x-2">
+            <button className="p-2 hover:bg-gray-800/50 rounded-lg transition-colors">
+              <Bell className="w-5 h-5" />
+            </button>
+            <button className="p-2 hover:bg-gray-800/50 rounded-lg transition-colors">
+              <Settings className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <div className="flex pt-16">
         {/* Sidebar */}
         <AnimatePresence>
           {isSidebarOpen && (
@@ -745,15 +783,14 @@ const Dashboard: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: -300 }}
               transition={{ duration: 0.3 }}
-              // Modified className for responsive sidebar behavior
-              className="fixed inset-y-0 left-0 w-64 bg-gray-900/80 backdrop-blur-xl border-r border-gray-800 p-6 lg:static lg:block z-50"
+              className="fixed inset-y-0 left-0 top-16 w-64 bg-gray-900/80 backdrop-blur-xl border-r border-gray-800 p-6 z-40 lg:hidden"
             >
               <div className="flex items-center mb-8">
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full mr-3"></div>
-                <Link to="/" className="block cursor-pointer">
-                  <h2 className="text-xl font-bold">Longeconomics</h2>
-                  <p className="text-xs text-gray-500">Dashboard</p>
-                </Link>
+                <div>
+                  <h2 className="text-lg font-bold">Dashboard</h2>
+                  <p className="text-xs text-gray-500">Health Analytics</p>
+                </div>
               </div>
 
               <nav className="space-y-2">
@@ -762,7 +799,7 @@ const Dashboard: React.FC = () => {
                     key={item.id}
                     onClick={() => {
                       setActiveSection(item.id);
-                      setIsSidebarOpen(false); // Close sidebar on item click
+                      setIsSidebarOpen(false);
                     }}
                     className={`w-full flex items-center p-3 rounded-lg transition-all ${
                       activeSection === item.id
@@ -790,38 +827,50 @@ const Dashboard: React.FC = () => {
           )}
         </AnimatePresence>
 
-        {/* Main Content */}
-        {/* Added conditional margin-left to main content when sidebar is open on larger screens */}
-        <div className={`flex-1 flex flex-col lg:ml-64 ${isSidebarOpen && window.innerWidth < 1024 ? 'ml-64' : ''}`}>
-          {/* Header */}
-          <header className="bg-gray-900/80 backdrop-blur-xl border-b border-gray-800 p-4">
-            <div className="flex justify-between items-center">
-              <div className="flex items-center">
-                <button
-                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  // Hamburger menu for small screens, hidden on large screens
-                  className="p-2 mr-3 lg:hidden hover:bg-gray-800/50 rounded-lg transition-colors"
-                >
-                  <Menu className="w-6 h-6" />
-                </button>
+        {/* Desktop Sidebar */}
+        <div className="hidden lg:block w-64 bg-gray-900/80 backdrop-blur-xl border-r border-gray-800 p-6 fixed inset-y-0 left-0 top-16 z-40">
+              <div className="flex items-center mb-8">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full mr-3"></div>
                 <div>
-                  <h1 className="text-2xl font-bold">Health Dashboard</h1>
-                  <p className="text-gray-500">Track your longeconomic journey</p>
+                  <h2 className="text-lg font-bold">Dashboard</h2>
+                  <p className="text-xs text-gray-500">Health Analytics</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-4">
-                <button className="p-2 hover:bg-gray-800/50 rounded-lg transition-colors">
-                  <Bell className="w-5 h-5" />
-                </button>
-                <button className="p-2 hover:bg-gray-800/50 rounded-lg transition-colors">
-                  <Settings className="w-5 h-5" />
-                </button>
+
+              <nav className="space-y-2">
+                {sidebarItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      setActiveSection(item.id);
+                    }}
+                    className={`w-full flex items-center p-3 rounded-lg transition-all ${
+                      activeSection === item.id
+                        ? 'bg-blue-600/20 text-blue-400 border border-blue-500/20'
+                        : 'hover:bg-gray-800/50 text-gray-400'
+                    }`}
+                  >
+                    <item.icon className="w-5 h-5 mr-3" />
+                    {item.label}
+                  </button>
+                ))}
+              </nav>
+
+              <div className="mt-8 p-4 bg-gray-800/50 rounded-xl border border-gray-700">
+                <h3 className="font-semibold mb-2">Patient Profile</h3>
+                <div className="flex items-center mb-2">
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full mr-3"></div>
+                  <div>
+                    <p className="font-medium">Soumik</p>
+                    <p className="text-xs text-gray-500">Age: 36</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </header>
 
-          {/* Dashboard Content */}
-          <div className="flex-1 p-6 overflow-y-auto">
+        {/* Main Content */}
+        <div className="flex-1 lg:ml-64">
+          <div className="p-4 lg:p-6 overflow-y-auto min-h-screen">
             {/* Top Stats Row */}
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
               <motion.div
@@ -831,7 +880,7 @@ const Dashboard: React.FC = () => {
               >
                 <div className="text-center">
                   <CircularProgress value={86} />
-                  <h3 className="text-xl font-bold mt-4">longeconomic Score</h3>
+                  <h3 className="text-xl font-bold mt-4">Longevity Score</h3>
                   <p className="text-gray-500">Excellent</p>
                 </div>
               </motion.div>
@@ -894,7 +943,7 @@ const Dashboard: React.FC = () => {
 
                   <h4 className="text-xl font-bold text-yellow-400 mb-2">Your Achievement</h4>
                   <div className="text-3xl font-bold text-white mb-1">100</div>
-                  <div className="text-lg text-yellow-300 mb-4">Longenomic Tokens</div>
+                  <div className="text-lg text-yellow-300 mb-4">Longevity Tokens</div>
 
                   <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700/50">
                     <div className="text-sm text-gray-300 mb-2">Progress to Next Level</div>
@@ -940,7 +989,7 @@ const Dashboard: React.FC = () => {
 
             {/* Charts Section */}
             <motion.div
-              initial={{ y: 20, opacity: 0 }} // Corrected: Changed 2:0 to 20
+              initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.7 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"
@@ -998,7 +1047,7 @@ const Dashboard: React.FC = () => {
 
             {/* AI Insights - Collapsible */}
             <motion.div
-              initial={{ y: 20, opacity: 0 }} // Corrected: Changed 2:0 to 20
+              initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1.0 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -1119,6 +1168,14 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Overlay for mobile sidebar */}
+      {isSidebarOpen && window.innerWidth < 1024 && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
     </div>
   );
 };
