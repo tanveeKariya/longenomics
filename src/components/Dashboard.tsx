@@ -15,7 +15,7 @@ import {
   TestTube,
   CheckCircle,
   Shield,
-  DollarSign
+  AlertCircle
 } from 'lucide-react';
 
 const Dashboard = () => {
@@ -121,7 +121,7 @@ const Dashboard = () => {
                   <span className="text-sm">Outcome Guarantee with our expert intervention</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <DollarSign className="w-5 h-5 text-emerald-200" />
+                  <AlertCircle className="w-5 h-5 text-emerald-200" />
                   <span className="text-sm">Money-back guarantee if key biomarkers don't improve within 12 months</span>
                 </div>
               </div>
