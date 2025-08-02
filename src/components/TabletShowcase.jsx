@@ -1,5 +1,5 @@
 import React from 'react';
-import './LandingPage.css';
+import './TabletShowcase.css'; // Make sure this path is correct
 import TabImage from '../assets/tab.png';
 
 const TabletShowcase = () => {

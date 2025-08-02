@@ -1,5 +1,5 @@
 import React from 'react';
-import './LandingPage.css';
+import './FAQSection.css'; // Make sure this path is correct
 
 const FAQSection = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import './LandingPage.css';
+import './PricingSection.css';
 import { useNavigate } from 'react-router-dom';
 
 const PricingSection = () => {

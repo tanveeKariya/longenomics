@@ -1,0 +1,46 @@
+:root {
+  --white: #ffffff;
+}
+
+.lp-showcase-section {
+  background-color: var(--white);
+  padding: 40px 20px 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.lp-showcase-image-wrapper {
+  max-width: 1000px;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lp-tab-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+@media (max-width: 1024px) {
+  .lp-showcase-section {
+    padding: 30px 20px 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lp-showcase-section {
+    padding: 30px 15px 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lp-showcase-section {
+    padding: 20px 10px 40px;
+  }
+}

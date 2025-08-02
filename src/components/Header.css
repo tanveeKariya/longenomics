@@ -1,0 +1,639 @@
+/* Header.css */
+
+/* General Body and HTML Reset */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif; /* A more modern sans-serif like in the image */
+    box-sizing: border-box;
+    background-color: #f8f9fa; /* Lighter background, common in modern UIs */
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+    height: 100%; /* Ensure html/body take full height for fixed positioning */
+}
+
+/* --- Header Container --- */
+.lp-header {
+    display: flex;
+    justify-content: space-between; /* Push logo left, actions right */
+    align-items: center;
+    padding: 15px 20px; /* Default padding for mobile */
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Softer shadow */
+    position: relative; /* Context for dropdown positioning on desktop */
+    z-index: 1000; /* Ensure header is on top */
+    min-height: 70px; /* Slightly taller header */
+    width: 100%; /* Ensure header takes full width */
+    box-sizing: border-box;
+    font-size: 15px; /* Base font size for header */
+}
+
+.lp-logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between logo and text */
+    flex-shrink: 0;
+}
+
+.lp-logo {
+    height: 28px; /* Slightly adjusted logo size */
+    display: block;
+}
+
+.lp-logo-text {
+    font-size: 20px; /* Larger, more prominent logo text */
+    font-weight: 700; /* Bolder */
+    color: #333; /* Darker color */
+    letter-spacing: -0.5px; /* Tighter letter spacing */
+}
+
+/* --- Header Actions (Join button + Hamburger) --- */
+.lp-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between Join button and hamburger */
+}
+
+/* --- Join Button in Header --- */
+.lp-button.lp-header-join-button {
+    background-color: #0070f3; /* A common blue for primary actions */
+    color: #fff;
+    border: none;
+    padding: 10px 22px; /* Adjusted padding */
+    border-radius: 8px; /* More rounded corners */
+    font-size: 15px; /* Consistent font size */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0, 112, 243, 0.2); /* Subtle shadow for button */
+}
+
+.lp-button.lp-header-join-button:hover {
+    background-color: #005bb5;
+    transform: translateY(-1px); /* Slight lift on hover */
+}
+
+/* --- Hamburger Menu Icon (For opening mobile nav) --- */
+.hamburger-menu {
+    display: flex; /* Always display on mobile */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px; /* Slightly larger hamburger */
+    height: 28px;
+    cursor: pointer;
+    z-index: 1001; /* Above mobile menu overlay */
+    padding: 5px; /* Add padding for easier tapping */
+    box-sizing: content-box;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger animation for 'open' state (X icon) */
+.hamburger-menu.open .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.hamburger-menu.open .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.open .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Hide desktop navigation by default */
+.lp-nav-links.desktop-nav {
+    display: none;
+}
+
+/* --- Desktop Navigation Links --- */
+.lp-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Space between nav items */
+}
+
+.lp-nav-item {
+    position: relative;
+    color: #555; /* Muted text color */
+    font-weight: 500; /* Medium weight */
+    text-decoration: none;
+    padding: 5px 0; /* Vertical padding for hover area */
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    display: flex; /* For dropdown arrow if added */
+    align-items: center;
+    gap: 5px; /* Space for dropdown arrow */
+}
+
+.lp-nav-item:hover {
+    color: #0070f3; /* Highlight on hover */
+}
+
+.lp-nav-item.active {
+    color: #0070f3; /* Highlight when active */
+}
+
+.dropdown-arrow {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s ease;
+}
+
+.lp-nav-item.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* --- Dropdown Panels General Styling --- */
+.platform-dropdown-panel,
+.support-dropdown-panel {
+    background-color: #fff;
+    border-radius: 12px; /* Rounded corners for dropdown */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* More prominent shadow */
+    padding: 25px; /* Generous padding */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* No transform here for fixed position */
+    pointer-events: none; /* Allow clicks through when hidden */
+}
+
+.platform-dropdown.active .platform-dropdown-panel,
+.support-dropdown.active .support-dropdown-panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all; /* Enable clicks when visible */
+}
+
+/* --- Platform Dropdown Specific Styling for desktop --- */
+.platform-dropdown-panel {
+    position: absolute; /* Relative to the header */
+    top: calc(100% + 20px); /* Position below the header with more space */
+    left: 50%; /* Start centered */
+    transform: translateX(-50%); /* Pull back by half its width to truly center */
+    width: 980px; /* Specific width as per the image for content */
+    max-width: calc(100vw - 40px); /* Ensure it doesn't overflow viewport on smaller desktops */
+    box-sizing: border-box;
+    /* For the 'shift left' effect, we want it to visually align with the logo when open */
+    /* This will be handled by JavaScript or a class on the header/body in a more complex setup.
+       For pure CSS, we'll align it to the left edge of the content area. */
+}
+
+/* This is the key for "shifting" the navbar left -
+   the dropdown will occupy a large space and start from the left of the content area */
+@media (min-width: 992px) { /* Adjust breakpoint as needed for desired desktop behavior */
+    .lp-header.platform-dropdown-open .lp-nav-links.desktop-nav {
+        /* You might want to adjust margin-left here or use a grid layout for header
+           to achieve the visual shift. Without a grid, it's hard to make content
+           shift while nav stays fixed.
+           A simpler approach is to align the dropdown to the left edge of the main content area. */
+    }
+
+    .platform-dropdown-panel {
+        left: 50%; /* Or align to a global content container */
+        transform: translateX(-50%);
+        /* To simulate the visual effect from the image where the platform dropdown
+           appears aligned with the main content area: */
+        left: 0; /* Align to viewport left */
+        right: 0; /* Take full width */
+        margin: 0 auto; /* Center it */
+        max-width: 980px; /* Control max width */
+    }
+}
+
+
+.platform-content-wrapper {
+    display: flex;
+    gap: 30px; /* Space between columns and CTA */
+}
+
+.platform-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap: 30px; /* Space between columns */
+    flex-grow: 1; /* Allow columns to take available space */
+}
+
+.platform-column h4 {
+    font-size: 13px; /* Smaller, uppercase heading */
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.platform-dropdown-item-link {
+    display: flex;
+    align-items: flex-start; /* Align icon and text at the top */
+    gap: 12px;
+    text-decoration: none;
+    color: #333;
+    padding: 10px 0; /* Padding for each item */
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.platform-dropdown-item-link:hover {
+    background-color: #f0f4f7; /* Light background on hover */
+    color: #0070f3;
+}
+
+.platform-dropdown-item-link .item-icon {
+    flex-shrink: 0;
+    width: 24px; /* Icon size */
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0070f3; /* Icon color */
+}
+
+.platform-dropdown-item-link .item-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.platform-dropdown-item-link .item-text-content {
+    flex-grow: 1;
+}
+
+.platform-dropdown-item-link .item-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    color: #333; /* Darker title color */
+    transition: color 0.2s ease;
+}
+
+.platform-dropdown-item-link:hover .item-title {
+    color: #0070f3; /* Title color on hover */
+}
+
+.platform-dropdown-item-link .item-description {
+    font-size: 13px;
+    color: #777; /* Muted description color */
+    margin: 0;
+    line-height: 1.4;
+}
+
+.platform-cta-box {
+    background-color: #2a2a2a; /* Dark background for CTA box */
+    color: #fff;
+    padding: 25px 25px; /* Generous padding */
+    border-radius: 10px;
+    width: 300px; /* Fixed width for the CTA box */
+    flex-shrink: 0; /* Prevent it from shrinking */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+}
+
+.platform-cta-box h3 {
+    font-size: 20px; /* Larger heading */
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.platform-cta-box p {
+    font-size: 14px;
+    color: #ccc; /* Lighter text for contrast */
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.platform-cta-box .cta-link {
+    display: inline-flex; /* Allows text and arrow on same line */
+    align-items: center;
+    gap: 5px;
+    color: #0070f3; /* Bright blue for link */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: color 0.2s ease;
+}
+
+.platform-cta-box .cta-link:hover {
+    color: #005bb5;
+    text-decoration: underline;
+}
+
+/* --- Support Dropdown Specific Styling --- */
+.support-dropdown-panel {
+    position: absolute;
+    top: calc(100% + 15px); /* Position below the nav item */
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 180px; /* Fixed width for support dropdown */
+    padding: 15px 0; /* Vertical padding only */
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Space between links */
+}
+
+.support-dropdown-panel a {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 20px; /* Padding for each link item */
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.support-dropdown-panel a:hover {
+    background-color: #f0f4f7;
+    color: #0070f3;
+}
+
+/* --- Main Content Section (Headline and Buttons) --- */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text */
+    padding: 80px 20px; /* Generous padding top/bottom */
+    max-width: 800px; /* Control content width */
+    margin: 0 auto; /* Center the content block */
+}
+
+.main-content h1 {
+    font-size: 48px; /* Large, bold headline */
+    font-weight: 800; /* Extra bold */
+    color: #222;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    letter-spacing: -1px; /* Tighter letter spacing */
+}
+
+.main-content .subtext {
+    font-size: 18px; /* Slightly larger subtext */
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    max-width: 600px; /* Constrain subtext width */
+}
+
+.main-content-buttons {
+    display: flex;
+    gap: 15px; /* Space between buttons */
+    justify-content: center; /* Center buttons */
+}
+
+.lp-button.primary-button {
+    background-color: #0070f3;
+    color: #fff;
+    border: none;
+    padding: 14px 30px; /* Larger padding */
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+    box-shadow: 0 4px 10px rgba(0, 112, 243, 0.25);
+}
+
+.lp-button.primary-button:hover {
+    background-color: #005bb5;
+    transform: translateY(-2px);
+}
+
+.lp-button.secondary-button {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd; /* Subtle border */
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.lp-button.secondary-button:hover {
+    border-color: #0070f3;
+    color: #0070f3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- Mobile Menu Overlay and Navigation --- */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+    z-index: 999; /* Below hamburger, above content */
+    display: flex;
+    justify-content: flex-end; /* Push menu to the right */
+    overflow-y: auto; /* Enable scrolling for mobile menu content */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.lp-nav-links.mobile-nav {
+    flex-direction: column;
+    width: 80%; /* Menu takes 80% of screen width */
+    max-width: 350px; /* Max width for mobile menu */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(0%); /* Start visible for mobile menu */
+    transition: transform 0.3s ease-out; /* Slide in/out animation */
+    height: 100%; /* Take full height of the overlay */
+    box-sizing: border-box;
+    align-items: flex-start; /* Align items to the left */
+    gap: 15px; /* Gap between main nav items */
+}
+
+.mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.mobile-nav-header .lp-logo-text {
+    font-size: 20px; /* Match desktop logo text size */
+}
+
+.mobile-nav .close-menu {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.2s ease;
+}
+
+.mobile-nav .close-menu:hover {
+    color: #0070f3;
+}
+
+.lp-nav-links.mobile-nav .lp-nav-item {
+    width: 100%; /* Full width for mobile nav items */
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0; /* Separator for mobile links */
+    font-size: 17px; /* Larger font for mobile */
+    font-weight: 500;
+}
+
+.lp-nav-links.mobile-nav .lp-nav-item:last-of-type {
+    border-bottom: none;
+}
+
+/* Mobile dropdowns within the mobile menu */
+.lp-nav-links.mobile-nav .platform-dropdown .platform-dropdown-panel,
+.lp-nav-links.mobile-nav .support-dropdown .support-dropdown-panel {
+    position: static; /* Remove absolute positioning */
+    transform: none; /* Remove translateX */
+    box-shadow: none; /* No shadow */
+    border-radius: 0; /* No border-radius */
+    padding: 0; /* No padding */
+    width: 100%; /* Full width */
+    margin-top: 10px; /* Space below parent nav item */
+    background-color: transparent; /* Transparent background */
+    display: none; /* Hide by default */
+    opacity: 1; /* Always visible when displayed */
+    visibility: visible;
+    pointer-events: all;
+    transition: none; /* No transition for mobile dropdowns */
+}
+
+.lp-nav-links.mobile-nav .platform-dropdown.active .platform-dropdown-panel,
+.lp-nav-links.mobile-nav .support-dropdown.active .support-dropdown-panel {
+    display: block; /* Show when active */
+}
+
+.lp-nav-links.mobile-nav .platform-dropdown-panel .platform-content-wrapper {
+    flex-direction: column; /* Stack for mobile */
+    gap: 0; /* Remove gap from wrapper */
+}
+
+.lp-nav-links.mobile-nav .platform-dropdown-panel .platform-columns {
+    grid-template-columns: 1fr; /* Single column layout for mobile platform dropdown */
+    gap: 15px; /* Space between sections */
+}
+
+.lp-nav-links.mobile-nav .platform-dropdown-panel .platform-column h4 {
+    margin-top: 15px; /* Space above mobile column headings */
+    margin-bottom: 8px;
+    font-size: 12px; /* Smaller heading for mobile dropdown */
+}
+
+.lp-nav-links.mobile-nav .platform-dropdown-panel .platform-dropdown-item-link {
+    padding: 8px 0; /* Smaller padding for mobile dropdown items */
+    font-size: 15px;
+    align-items: center; /* Center icon and text */
+}
+
+.lp-nav-links.mobile-nav .platform-dropdown-panel .item-description {
+    font-size: 12px; /* Smaller description text for mobile */
+}
+
+.lp-nav-links.mobile-nav .platform-cta-box {
+    margin-top: 15px; /* Smaller margin top */
+    padding: 15px; /* Smaller padding */
+    width: auto; /* Allow auto width for mobile */
+}
+
+.lp-nav-links.mobile-nav .support-dropdown-panel a {
+    padding: 10px 0; /* Adjusted padding for mobile support links */
+}
+
+.mobile-join-button {
+    width: 100%;
+    margin-top: 20px; /* Space above the button */
+    padding: 12px; /* Larger padding for mobile button */
+    font-size: 16px;
+}
+
+
+/* --- Media Queries --- */
+
+/* Tablet and larger screens (min-width: 768px) */
+@media (min-width: 768px) {
+    .lp-header {
+        padding: 15px 40px; /* Restore desktop padding */
+    }
+
+    .lp-button.lp-header-join-button {
+        padding: 12px 25px; /* Restore desktop padding */
+        font-size: 16px; /* Restore desktop font size */
+    }
+
+    /* Hide hamburger menu on desktop */
+    .hamburger-menu {
+        display: none;
+    }
+
+    /* Show desktop navigation */
+    .lp-nav-links.desktop-nav {
+        display: flex;
+    }
+
+    /* Hide mobile menu overlay on desktop */
+    .mobile-menu-overlay {
+        display: none;
+    }
+
+    /* Center the platform dropdown panel for larger screens */
+    .platform-dropdown-panel {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .main-content h1 {
+        font-size: 60px; /* Larger headline for desktop */
+    }
+
+    .main-content .subtext {
+        font-size: 20px; /* Larger subtext for desktop */
+    }
+}
+
+/* Larger desktop screens (min-width: 992px) */
+@media (min-width: 992px) {
+    .lp-header {
+        padding: 15px 80px;
+    }
+
+    /* Adjust the positioning of the platform dropdown to align left
+       when active, creating the "shift" effect */
+    .lp-nav-links.desktop-nav {
+      /* To visually "shift" the navbar, we need the platform dropdown to
+         start much further left.
+         This will likely involve coordinating the main content's `max-width`
+         with the dropdown's `max-width` and positioning. */
+    }
+
+    .platform-dropdown-panel {
+        /* This is the key change for desktop dropdown alignment */
+        left: 50%; /* Center the dropdown relative to the viewport's center */
+        transform: translateX(-50%); /* Pull it back by half its width */
+        width: 100%; /* Take full width of its centered container */
+        max-width: 980px; /* Fixed maximum width as per design */
+        padding: 30px; /* More padding */
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+    }
+}
+
+/* Even larger screens for ideal layout */
+@media (min-width: 1200px) {
+    .lp-header {
+        padding: 15px 120px; /* Even more padding for very wide screens */
+    }
+
+    .main-content {
+        padding: 100px 20px; /* More vertical padding */
+    }
+}

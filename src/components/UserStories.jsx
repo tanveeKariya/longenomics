@@ -1,5 +1,5 @@
 import React from 'react';
-import './LandingPage.css'; 
+import './UserStories.css'; 
 import img from '../assets/image.png'; 
 
 const UserStories = () => {

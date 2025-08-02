@@ -1,0 +1,128 @@
+:root {
+  --primary-blue: #006aff;
+  --text-dark: #222222;
+  --text-medium: #5a5a5a;
+  --white: #ffffff;
+  --bg-light-gray: #f9f9f9;
+  --border-light: #e0e0e0;
+}
+
+.lp-hero-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+  background-color: var(--bg-light-gray);
+}
+
+.lp-hero-title {
+  font-size: clamp(36px, 4.2vw, 68px);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+  max-width: 960px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.lp-hero-subtitle {
+  font-size: clamp(16px, 1.4vw, 24px);
+  color: var(--text-medium);
+  margin-bottom: 48px;
+  max-width: 780px;
+  line-height: 1.5;
+}
+
+.lp-cta-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.lp-primary-cta {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 18px 36px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.lp-primary-cta:hover {
+  background-color: #0056cb;
+}
+
+.lp-secondary-cta {
+  background-color: var(--white);
+  color: var(--primary-blue);
+  border: 1px solid var(--border-light);
+  padding: 18px 36px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.lp-secondary-cta:hover {
+  background-color: #f0f8ff;
+  border-color: var(--primary-blue);
+}
+
+@media (max-width: 1024px) {
+  .lp-hero-title {
+    font-size: clamp(32px, 5vw, 60px);
+  }
+  .lp-hero-subtitle {
+    font-size: clamp(15px, 2vw, 22px);
+  }
+  .lp-primary-cta, .lp-secondary-cta {
+    padding: 15px 30px;
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lp-hero-section {
+    padding: 60px 15px;
+  }
+  .lp-hero-title {
+    font-size: clamp(28px, 7vw, 48px);
+    margin-bottom: 15px;
+  }
+  .lp-hero-subtitle {
+    font-size: clamp(14px, 3.5vw, 18px);
+    margin-bottom: 30px;
+  }
+  .lp-cta-buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 300px;
+  }
+  .lp-primary-cta, .lp-secondary-cta {
+    width: 100%;
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lp-hero-section {
+    padding: 40px 10px;
+  }
+  .lp-hero-title {
+    font-size: 8vw;
+  }
+  .lp-hero-subtitle {
+    font-size: 4vw;
+  }
+  .lp-cta-buttons {
+    max-width: 280px;
+  }
+  .lp-primary-cta, .lp-secondary-cta {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+}
